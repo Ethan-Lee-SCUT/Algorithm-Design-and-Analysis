@@ -2,9 +2,13 @@
 
 ### Chapter 01 Introduction
 
+#### KEY POINTS:
+
+* What is an **algorithm** and its **properties**. 
+
 #### 1. What is an algorithm?
 
-An algorithm is composed of a set of steps for solving a specific problem. It should satisfy the following properties:
+An algorithm is **a composition of a set of steps to solve a specific problem**. It should satisfy the following properties:
 
 1. **Finiteness** (the number of steps should be finite)
 2. **Definiteness** (to compute 5/0 is not definite)
@@ -54,6 +58,10 @@ such as a recipe(食谱), a flowchart, a program.
 
 ### Chapter 02 The complexity of Algorithms and The lower Bounds of Problems
 
+#### KEY POINTS:
+
+* What is the goodness of an algorithm? 
+
 #### 1. The goodness of an algorithm
 
 1. Time complexity (more important)
@@ -84,6 +92,14 @@ such as a recipe(食谱), a flowchart, a program.
 
 ### Chapter 03 The Greedy Method
 
+#### KEY POINTS:
+
+* Shortest paths on a multi-stage graph
+* Minimum spanning trees (MST) algorithms
+  * Kruskal’s algorithm
+  * Prim’s algorithm
+* Knapsack problem. 
+
 ​	Suppose that a problem can be solved by a sequence of decisions.  The greedy method has that **each decision is locally optimal.  These locally optimal solutions will finally add up to a globally optimal solution.**
 
 #### 1. Minimum Spanning Tree (MST)
@@ -108,9 +124,9 @@ such as a recipe(食谱), a flowchart, a program.
 4. Stop if n-1 edges. Otherwise, go to Step2.
 5. Result
 
-#### 4. Dijkstra’s algorithm for shortest path
+#### 4. Dijkstra’s algorithm for shortest path ???
 
-
+​	add something
 
 #### 5. Activity On Edge (AOE) Networks
 
@@ -132,6 +148,10 @@ How to select them according to optimal value?
 
 
 ### Chapter 04 Divide-and-Conquer Strategy
+
+#### KEY POINTS:
+
+* 2-D maxima finding problem
 
 #### 1. What is divide and conquer?
 
@@ -170,6 +190,12 @@ How to select them according to optimal value?
 
 
 ### Chapter 05 Tree Searching Strategy
+
+#### KEY POINTS:
+
+* Hamiltonian circuit problem
+* Personnel assignment problem
+* Traveling salesperson optimization problem
 
 #### 1. What is tree search?
 ​	All the possible solution can be included and represented in the tree.
@@ -212,24 +238,235 @@ How to select them according to optimal value?
 #### 6. Branch-and-bound strategy
 
 * The solution space should be cut by discovering that many feasible solutions can not be optimal solutions.
-* The search strategy consists of **hill-climbing**, 每次扩展除了根据界限，还会根据hill climbing 优先选择path cost最少的节点扩展?
+* The search strategy consists of **best-first search**, 每次扩展除了根据界限，还会根据best-first search优先选择$f-cost$最少的节点扩展 ???
 
 |                             BFS                              |                             DFS                              |                           BestFS                            |             Branch and bound strategy             |
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :---------------------------------------------------------: | :-----------------------------------------------: |
-| All nodes on the level of the tree are examined before the nodes on the next level are examined. | We always select the deepest local optimal node for expansion. |    Combine depth-first search and breadth-first search.     |      cut the non-optimal feasible solutions.      |
+| All nodes on the level of the tree are examined before the nodes on the next level are examined. |       We always select the deepest node for expansion.       |    Combine depth-first search and breadth-first search.     |      cut the non-optimal feasible solutions.      |
 |       A queue can be used to hold all expanded nodes.        | Hill climbing (A stack can be used to guide the depth-first search.) | (A priority queue (heap) can be used as the data structure) | A multi-stage graph optimal problem can be solved |
 
+#### 7. Personnel assignment problem (by Branch and Bound)
+
+
+
+<img src="https://github.com/Ethan-Lee-SCUT/Algorithm-Design-and-Analysis/blob/master/pic/%E5%9B%BE%E7%89%873.png?raw=true" style="zoom:0.4" />
+
+* Cost matrix
+
+| Person\Jobs |  1   |  2   |  3   |  4   |
+| :---------: | :--: | :--: | :--: | :--: |
+|      1      |  29  |  19  |  17  |  12  |
+|      2      |  32  |  30  |  26  |  28  |
+|      3      |  3   |  21  |  7   |  9   |
+|      4      |  18  |  13  |  10  |  15  |
+
+* **Reduced cost matrix**
+  * Subtract a constant from each row and each column respectively such that **-each row and each column contains at least one zero**. 
+  * Total cost subtracted: 12+26+3+10+3 = 54
+  * This is a **lower bound** of our solution.
+
+| Person/Jobs |  1   |  2   |  3   |  4   |       |
+| :---------: | :--: | :--: | :--: | :--: | :---: |
+|      1      |  17  |  4   |  5   |  0   | (-12) |
+|      2      |  6   |  1   |  0   |  2   | (-26) |
+|      3      |  0   |  15  |  4   |  6   | (-3)  |
+|      4      |  8   |  0   |  0   |  5   | (-10) |
+|             |      | (-3) |      |      |       |
+
+* **Solution tree**
+
+<img src="https://github.com/Ethan-Lee-SCUT/Algorithm-Design-and-Analysis/blob/master/pic/%E5%9B%BE%E7%89%874.png?raw=true" style="zoom:0.7" />
+
+#### 8. Traveling salesman problem ???
+
+add something
+
+#### 9. A* algorithm
+
+* Used to solve optimization problems.
+* Using the best-first strategy.
+* **If a feasible solution (goal node) is obtained, then it is optimal and we can stop.**
+* Cost function of node $n$: $f(n)=g(n)+h(n)$
+  * $g(n)$: cost from root to node $n$
+  * $h(n)$: estimated cost from node $n$ to a goal node.
+
+* For shortest path finding:
+  * $g(n)=$ path cost
+  * $h(n)=$ estimated cost $=min\{next \ edges \}$ 
+
+#### 10. 0/1 Knapsack problem
 
 
 
 
 
+### Chapter 06 Prune and search
+
+#### KEY POINTS:
+
+* What is the Prune and search approach and the general prune-and-search? 
+* Find the $k^{th}$ largest element in set $S$.
+
+#### 1. What is pruning?
+
+​	The prune-and-search strategy always consists of **several iteration**. At each iteration, it prunes away a fraction, say $f$, of the data, and then it invokes the same algorithm recursively to solve the problem for the remaining data.
+
+#### 2. The significance of pruning
+
+​	It is used to solve **optimization problems** and usually gives **efficient** algorithms for solving these problems. It make the problem so small to be solved directly in a constant time. Pruning reduces the size of a learning tree without reducing predictive accuracy.
+
+#### 3. $k^{th}$ largest element
+
+* $S={a_1, a_2, …, a_n}$
+* Let $p \in S$, use $p$ to partition $S$ into 3 subsets $S_1 , S_2 , S_3$: 
+  * $S_1= \{ a_i|a_i<p, 1 \le i \le n\}$
+  * $S_1= \{ a_i|a_i=p, 1 \le i \le n\}$
+  * $S_1= \{ a_i|a_i>p, 1 \le i \le n\}$
+
+* 3 cases:
+  * If $|S_1| > k$ , then the $k^{th}$ smallest element of $S$ is in $S_1$, prune away $S_2$ and $S_3$.
+  * Else, if $|S_1| + |S_2| \ge k$, then $p$ is the $k^{th}$ smallest element of $S$.
+  * Else, the kth smallest element of S is the $(k - |S_1| - |S_2|)^{th}$ smallest element in $S_3$, prune away $S_1$ and $S_2$.
 
 
 
 
 
+### Chapter 07 Dynamic Programming
 
+#### KEY POINTS:
+
+* What is dynamic programming strategy? 
+* The shortest path in multistage graphs (include forward approach, and Backward approach)
+* Longest common subsequence (LCS) problem
+* 0/1 knapsack problem
+* Matrix-chain multiplication
+
+#### 1. What is dynamic programming strategy? 
+
+​	DP is an algorithm design method that can be used when the solution to a problem may be viewed as the result of a sequence of decisions
+
+
+
+#### 2. The shortest path in multistage graph
+
+* **Multistage graph**
+
+<img src="https://raw.githubusercontent.com/Ethan-Lee-SCUT/Algorithm-Design-and-Analysis/master/pic/%E5%9B%BE%E7%89%875.png" style="zoom:0.8" />
+
+* **Define**
+  * $d(V_1,V_2)$ is the minimum distance from $V_1$ to $V_2$
+
+* **Forward approach (Backward reasoning)**
+  * $d(S, A) = 1$
+  * $d(S, B) = 2$
+  * $d(S, C) = 5$
+  * $d(S,D)=min \{d(S,A)+d(A,D), d(S,B)+d(B,D) \} = min \{1+4, 2+9 \} = 5$
+  * $d(S,E)=min \{d(S,A)+d(A,E), d(S,B)+d(B,E) \} = min \{1+11, 2+5 \} = 7$
+  * $d(S,F)=min \{d(S,B)+d(B,F), d(S,C)+d(C,F) \} = min \{2+16, 5+2 \} = 7$
+  * $d(S,T) = min \{d(S, D)+d(D, T), d(S,E)+d(E,T), d(S, F)+d(F, T) \}=min \{ 5+18, 7+13, 7+2 \} = 9$
+* **Backward approach (Forward reasoning) **
+  * $d(S, A) = 1$
+  * $d(S, B) = 2$
+  * $d(S, C) = 5$
+  * $d(S,D)=min \{d(S,A)+d(A,D), d(S,B)+d(B,D) \}= min \{ 1+4, 2+9 \} = 5$
+  * $d(S,E)=min \{d(S,A)+d(A,E), d(S,B)+d(B,E) \}= min \{ 1+11, 2+5 \} = 7$
+  * $d(S,F)=min \{d(S,B)+d(B,F), d(S,C)+d(C,F) \}= min \{ 2+16, 5+2 \} = 7$
+  * $d(S,T) = min \{d(S, D)+d(D, T), d(S,E)+d(E,T), d(S, F)+d(F, T) \}= min \{ 5+18, 7+13, 7+2 \}=9 $
+
+
+
+#### 3. Longest common subsequence (LCS) problem
+
+* **Multistage graph**
+
+<img src="https://raw.githubusercontent.com/Ethan-Lee-SCUT/Algorithm-Design-and-Analysis/master/pic/%E5%9B%BE%E7%89%876.png" style="zoom:0.6" />
+
+* Define
+  * $L_{i,j}$ be the length of longest common longest common subsequence of $a_1 a_2 ... a_i$ from $A$ and $b_1 b_2 ... b_j$ from $B$.
+
+$$
+L_{i,j}=\left\{
+\begin{aligned}
+&L_{i-1,j-1}+1&if\ a_i=b_j  \\
+&max \{ L_{i,j-1},L_{i-1,j}\}&if\ a_i\ne b_j \\
+
+\end{aligned}
+\right.
+$$
+
+* Solve
+
+  $e.g.\ A=b a c a d\ B= a c c b a d c b$
+
+<img src="https://raw.githubusercontent.com/Ethan-Lee-SCUT/Algorithm-Design-and-Analysis/master/pic/%E5%9B%BE%E7%89%877.png" style="zoom:0.7" />
+
+#### 4. 0/1 knapsack problem
+
+* **Multistage graph**
+
+<img src="https://raw.githubusercontent.com/Ethan-Lee-SCUT/Algorithm-Design-and-Analysis/master/pic/%E5%9B%BE%E7%89%8712.png" style="zoom:0.6" />
+
+* **Define**
+  * $f_i(Q)$ be the the value of an optimal solution to objects $1,2,3,…,i$ with capacity $Q$
+
+$$
+f_i(Q)=\left\{
+\begin{aligned}
+&f_{i-1}(Q)&if\ Q<W_i  \\
+&max \{f_{i-1}(Q), f_{i-1}(Q-W_i)+P_i\} &if\ Q\ge W_i \\
+\end{aligned}
+\right.
+$$
+
+* **Solution for the following case (M=80)**
+
+| $i$  | $W_i$ | $P_i$ |
+| :--: | :---: | :---: |
+|  1   |   5   |  50   |
+|  2   |  25   |  200  |
+|  3   |  30   |  180  |
+|  4   |  45   |  225  |
+
+| I\Q  |  0   |  5   |  10  |  15  |  20  |  25  |  30  |  35  |  40  |  45  |  50  |  55  | 60   |  65  |  70  |  75  |   80    |
+| :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | ---- | :--: | :--: | :--: | :-----: |
+|  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   |  0   | 0    |  0   |  0   |  0   |    0    |
+|  1   |  0   |  50  |  50  |  50  |  50  |  50  |  50  |  50  |  50  |  50  |  50  |  50  | 50   |  50  |  50  |  50  |   50    |
+|  2   |  0   |  50  |  50  |  50  |  50  | 200  | 250  | 250  | 250  | 250  | 250  | 250  | 250  | 250  | 250  | 250  |   250   |
+|  3   |  0   |  50  |  50  |  50  |  50  |  50  | 250  | 250  | 250  | 250  | 250  | 380  | 430  | 430  | 430  | 430  |   430   |
+|  4   |  0   |  50  |  50  |  50  |  50  |  50  | 250  | 250  | 250  | 250  | 275  | 275  | 275  | 275  | 275  | 475  | **475** |
+
+
+
+#### 5. Matrix-chain multiplication
+
+* **Multistage graph**
+
+<img src="https://raw.githubusercontent.com/Ethan-Lee-SCUT/Algorithm-Design-and-Analysis/master/pic/%E5%9B%BE%E7%89%878.png" style="zoom:0.5" />
+
+* **Define**
+  * $m(i,j)$ denotes the minimum cost for computing $A_i\times A_{i+1}\times ...\times A_j$
+
+$$
+m(i,j)=\left\{
+\begin{aligned}
+&0&if\ i=j  \\
+&\mathop{min}_{i\leq k\leq j-1 } \{m(i,k)+m(k+1,j)+p_{i-1}p_kp_j\} &if\ i < j \\
+\end{aligned}
+\right.
+$$
+
+* **Solution for the following case**
+
+$$
+M=\mathop{M_1}_{[10\times 20]}\times \mathop{M_2}_{[20\times 50]}\times \mathop{M_3}_{[50\times 1]}\times \mathop{M_4}_{[1\times 100]}
+$$
+
+|   $m_{1,1}=0$   |  $m_{2,2}=0$   |  $m_{3,3}=0$   | $m_{4,4}=0$ |
+| :-------------: | :------------: | :------------: | :---------: |
+| $m_{1,2}=10000$ | $m_{2,3}=1000$ | $m_{3,4}=5000$ |             |
+| $m_{1,3}=1200$  | $m_{2,4}=3000$ |                |             |
+| $m_{1,4}=2200$  |                |                |             |
 
 
 
