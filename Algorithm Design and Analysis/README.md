@@ -249,7 +249,7 @@ How to select them according to optimal value?
 
 
 
-<img src="https://github.com/Ethan-Lee-SCUT/Algorithm-Design-and-Analysis/blob/master/pic/%E5%9B%BE%E7%89%873.png?raw=true" style="zoom:0.4" />
+<img src="https://raw.githubusercontent.com/Ethan-Lee-SCUT/course-review/master/Algorithm%20Design%20and%20Analysis/pic/personel%20assignment.png" style="zoom:0.4" />
 
 * Cost matrix
 
@@ -275,7 +275,7 @@ How to select them according to optimal value?
 
 * **Solution tree**
 
-<img src="https://github.com/Ethan-Lee-SCUT/Algorithm-Design-and-Analysis/blob/master/pic/%E5%9B%BE%E7%89%874.png?raw=true" style="zoom:0.7" />
+<img src="https://raw.githubusercontent.com/Ethan-Lee-SCUT/course-review/master/Algorithm%20Design%20and%20Analysis/pic/personel%20assignment%20branch%20and%20bound.png" style="zoom:0.7" />
 
 #### 8. Traveling salesman problem ???
 
@@ -352,7 +352,7 @@ add something
 
 * **Multistage graph**
 
-<img src="https://raw.githubusercontent.com/Ethan-Lee-SCUT/Algorithm-Design-and-Analysis/master/pic/%E5%9B%BE%E7%89%875.png" style="zoom:0.8" />
+<img src="https://raw.githubusercontent.com/Ethan-Lee-SCUT/course-review/master/Algorithm%20Design%20and%20Analysis/pic/dp%20shortest%20path.png" style="zoom:0.8" />
 
 * **Define**
   * $d(V_1,V_2)$ is the minimum distance from $V_1$ to $V_2$
@@ -380,7 +380,7 @@ add something
 
 * **Multistage graph**
 
-<img src="https://raw.githubusercontent.com/Ethan-Lee-SCUT/Algorithm-Design-and-Analysis/master/pic/%E5%9B%BE%E7%89%876.png" style="zoom:0.6" />
+<img src="https://raw.githubusercontent.com/Ethan-Lee-SCUT/course-review/master/Algorithm%20Design%20and%20Analysis/pic/lcs%20multistage.png" style="zoom:0.6" />
 
 * Define
   * $L_{i,j}$ be the length of longest common longest common subsequence of $a_1 a_2 ... a_i$ from $A$ and $b_1 b_2 ... b_j$ from $B$.
@@ -399,13 +399,13 @@ $$
 
   $e.g.\ A=b a c a d\ B= a c c b a d c b$
 
-<img src="https://raw.githubusercontent.com/Ethan-Lee-SCUT/Algorithm-Design-and-Analysis/master/pic/%E5%9B%BE%E7%89%877.png" style="zoom:0.7" />
+<img src="https://raw.githubusercontent.com/Ethan-Lee-SCUT/course-review/master/Algorithm%20Design%20and%20Analysis/pic/lcs%20trace%20back.png" style="zoom:0.7" />
 
 #### 4. 0/1 knapsack problem
 
 * **Multistage graph**
 
-<img src="https://raw.githubusercontent.com/Ethan-Lee-SCUT/Algorithm-Design-and-Analysis/master/pic/%E5%9B%BE%E7%89%8712.png" style="zoom:0.6" />
+<img src="https://raw.githubusercontent.com/Ethan-Lee-SCUT/course-review/master/Algorithm%20Design%20and%20Analysis/pic/knapsack2%20multistage.png" style="zoom:0.6" />
 
 * **Define**
   * $f_i(Q)$ be the the value of an optimal solution to objects $1,2,3,…,i$ with capacity $Q$
@@ -442,7 +442,7 @@ $$
 
 * **Multistage graph**
 
-<img src="https://raw.githubusercontent.com/Ethan-Lee-SCUT/Algorithm-Design-and-Analysis/master/pic/%E5%9B%BE%E7%89%878.png" style="zoom:0.5" />
+<img src="https://raw.githubusercontent.com/Ethan-Lee-SCUT/course-review/master/Algorithm%20Design%20and%20Analysis/pic/matrix%20chain%20multistage.png" style="zoom:0.5" />
 
 * **Define**
   * $m(i,j)$ denotes the minimum cost for computing $A_i\times A_{i+1}\times ...\times A_j$
