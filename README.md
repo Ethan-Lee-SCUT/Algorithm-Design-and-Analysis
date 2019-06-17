@@ -1,4 +1,3 @@
-<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
 # Algorithm Review
 
 ### Chapter 01 Introduction
@@ -101,7 +100,7 @@ such as a recipe(食谱), a flowchart, a program.
   * Prim’s algorithm
 * Knapsack problem. 
 
-​	Suppose that a problem can be solved by a sequence of decisions.  The greedy method has that **each decision is locally optimal.  These locally optimal solutions will finally add up to a globally optimal solution.**
+​	Suppose a problem can be solved by a sequence of decisions.  The greedy method has that **each decision is locally optimal.  These locally optimal solutions will finally add up to a globally optimal solution.**
 
 #### 1. Minimum Spanning Tree (MST)
 
@@ -119,10 +118,10 @@ such as a recipe(食谱), a flowchart, a program.
 
 #### 3. Prim’s algorithm for MST
 
-1. Sort all edges between A and B. 
+1. Sort all edges between $A$ and $B$. 
 2. Add the next smallest weight edge to the forest;
-3. Renew A and B sets;
-4. Stop if n-1 edges. Otherwise, go to Step2.
+3. Renew $A$ and $B$ sets;
+4. Stop if $n-1$ edges. Otherwise, go to Step2.
 5. Result
 
 #### 4. Dijkstra’s algorithm for shortest path ???
@@ -327,7 +326,7 @@ add something
 * 3 cases:
   * If $|S_1| > k$ , then the $k^{th}$ smallest element of $S$ is in $S_1$, prune away $S_2$ and $S_3$.
   * Else, if $|S_1| + |S_2| \ge k$, then $p$ is the $k^{th}$ smallest element of $S$.
-  * Else, the kth smallest element of S is the $(k - |S_1| - |S_2|)^{th}$ smallest element in $S_3$, prune away $S_1$ and $S_2$.
+  * Else, the $k^{th}$ smallest element of $S$ is the $(k - |S_1| - |S_2|)^{th}$ smallest element in $S_3$, prune away $S_1$ and $S_2$.
 
 
 
