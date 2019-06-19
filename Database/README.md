@@ -32,5 +32,14 @@
 
 add pics
 
+#### 3. Attributes Types
+
+1. **Simple attribute**
+   * contains a single value
+   * 
+2. **Composite attribute**
+3. **Multi-valued attribute**
+4. **Derived attribute**
+
 
 
