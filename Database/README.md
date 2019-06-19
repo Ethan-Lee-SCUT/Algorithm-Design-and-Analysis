@@ -118,5 +118,12 @@
     * If a weak entity set $W$ is dependent on a strong entity set $E$, we say that $E$ **owns** $W$.
       * e.g. Employee owns Dependent
 
-#### 7. Class Hierachy
+#### 7. Class Hierarchy
 
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/class_hierachy.JPG" style="zoom:0.5" />
+
+* Attributes are **inherited** by the entity set in the subclass.
+  * e.g. the attributes defined for an $Hourly\_Emps$ entity are the attributes for Employees plus that of $Hourly\_Emps$
+* A class hierarchy can be viewed in one of the two ways.
+  * A class is **specialized** into subclasses.
+  * The subclasses are **generalized** by a superclass.
