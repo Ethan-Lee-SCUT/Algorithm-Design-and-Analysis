@@ -30,15 +30,24 @@
   * e.g. employee = (name, address, age, phone)
 * The **ER model** can be presented graphically by an **ER diagram**
 
-add pics
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/er_diagram.JPG" style="zoom:0.4" />
 
 #### 3. Attributes Types
 
 1. **Simple attribute**
+
    * contains a single value
-   * 
+
+     <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/simple_attribute.JPG" style="zoom:0.4" />
+
 2. **Composite attribute**
+
+   * contains several components
+
+   
+
 3. **Multi-valued attribute**
+
 4. **Derived attribute**
 
 
