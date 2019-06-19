@@ -127,3 +127,16 @@
 * A class hierarchy can be viewed in one of the two ways.
   * A class is **specialized** into subclasses.
   * The subclasses are **generalized** by a superclass.
+* **Constraints**
+  * Overlap constraints (Can an employee be an $Hourly\_Emps$ as well as a $Contract\_emps$ entity?)
+  * Covering constraints (Does every Employees entity also have to be an $Hourly\_Emps$ or a $Contract\_emps$)
+* Why we use class hierarchy?
+  * Add descriptive attribute that make sense only for the entities in a subclass.
+  * Identify the set of entities that participate in some relationships.
+
+#### 8. Non-binary Relationship
+
+* Ternary Relationship
+
+
+
