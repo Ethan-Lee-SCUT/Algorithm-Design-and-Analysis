@@ -20,3 +20,17 @@
 
 * ER model views the real world as a collection of **entities** and **relationships** among entities.
 
+#### 2. Entity
+
+* An **object** in the real world that is distinguishable from other objects
+  * e.g. A classroom, A teacher, The address of the teacher
+* Using a set of **attributes** whose values are used to distinguish one entity from another of same type
+* An **entity set** is a collection of entities of the same type
+* All **entries** in a given entity set have the same attributes (the values may be different).
+  * e.g. employee = (name, address, age, phone)
+* The **ER model** can be presented graphically by an **ER diagram**
+
+add pics
+
+
+
