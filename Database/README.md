@@ -50,7 +50,7 @@
 
    * Contains more than one value
 
-   
+   <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/multi_val_attribute.JPG" style="zoom:0.4" />
 
 4. **Derived attribute**
 
@@ -58,7 +58,11 @@
      * e.g., age can be computed from data of birth and the
        current date
 
-   
+   <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/derived_attribute.JPG" style="zoom:0.4" />
+
+
+
+
 
 
 
