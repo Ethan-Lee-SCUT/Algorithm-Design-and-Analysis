@@ -1,5 +1,5 @@
 
-### Road to knowledge is presented as follows:
+### Your road to knowledge:
 
 * **Algorithm Design and Analysis**: [Click here](https://github.com/imethanlee/course-review/tree/master/Algorithm%20Design%20and%20Analysis)
 
