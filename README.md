@@ -1,8 +1,3 @@
-# Welcome to course review
-
-Presented by Ethan Lee from South China University of Technology.
-
-
 
 ### Road to knowledge is presented as follows:
 
@@ -11,6 +6,5 @@ Presented by Ethan Lee from South China University of Technology.
 * **Computer Organization and Architecture**: [Click here](https://github.com/imethanlee/course-review/tree/master/Computer%20Organization%20and%20Architecture)
 
 * **Database** (coming soon): [Click here](https://github.com/imethanlee/course-review/tree/master/Database)
-* 
 
 
