@@ -44,11 +44,21 @@
 
    * contains several components
 
-   
+   <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/composite_attribute.JPG" style="zoom:0.4" />
 
 3. **Multi-valued attribute**
 
+   * Contains more than one value
+
+   
+
 4. **Derived attribute**
+
+   * Computed from other attributes
+     * e.g., age can be computed from data of birth and the
+       current date
+
+   
 
 
 
