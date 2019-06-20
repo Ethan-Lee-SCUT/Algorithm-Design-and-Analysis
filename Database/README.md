@@ -1,6 +1,6 @@
 # Database Review
 
-#### Chapter-01 Introduction
+### Chapter-01 Introduction
 
 #### 1. What is a Database
 
@@ -28,7 +28,7 @@
 * An **entity set** is a collection of entities of the same type
 * All **entries** in a given entity set have the same attributes (the values may be different).
   * e.g. employee = (name, address, age, phone)
-* The **ER model** can be presented graphically by an **ER diagram**.
+* The **ER model** can be presented gra04phically by an **ER diagram**.
 
 <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/er_diagram.JPG" style="zoom:0.4" />
 
@@ -137,6 +137,36 @@
 #### 8. Non-binary Relationship
 
 * Ternary Relationship
+
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/ternary_relationship.JPG" style="zoom:0.5" />
+
+
+
+
+
+### Chapter-04 Relational Model
+
+### 1. Terminology
+
+* **Relation $\leftrightarrow$ Table**
+  * denoted by $R(A_1,A_2,...,A_n)$ where $R$ is **relation name** and $(A_1,A_2,...,A_n)$ is the relation schema of $R$
+* **Attribute $\leftrightarrow$ Column**
+  * denoted by $A_i$ 
+* **Tuple $\leftrightarrow$ Row**
+* **Attribute value $\leftrightarrow$ value stored in a table cell**
+* **Domain $\leftrightarrow$ legal type and range of values of an attribute.**
+  * denoted by $dom(A_i)$
+* 
+
+
+
+
+
+
+
+
+
+
 
 
 
