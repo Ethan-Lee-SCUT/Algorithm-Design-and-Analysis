@@ -150,15 +150,75 @@
 
 * **Relation $\leftrightarrow$ Table**
   * denoted by $R(A_1,A_2,...,A_n)$ where $R$ is **relation name** and $(A_1,A_2,...,A_n)$ is the relation schema of $R$
-* **Attribute $\leftrightarrow$ Column**
+* **Attribute $\leftrightarrow$ Column (Collectively a schema)**
   * denoted by $A_i$ 
 * **Tuple $\leftrightarrow$ Row**
 * **Attribute value $\leftrightarrow$ value stored in a table cell**
 * **Domain $\leftrightarrow$ legal type and range of values of an attribute.**
   * denoted by $dom(A_i)$
-* 
 
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/terminology.JPG" style="zoom:0.55" />
 
+#### 2. Foreign Key
+
+* A set of attributes in one relation $R$ that is used to refer to a tuple in another relation $S$. (it must correspond to the primary key of the second relation)
+  * Student
+    * (<u>Student-id</u>, Student_Name)
+  * Take
+    * (<u>Student-id</u>, Course_id, semester_No)
+  * Student-id in relation Student is a **primary key**
+  * Student-id in relation Take is a **foreign key**
+
+#### 3. ER-to-Relational Mapping (???)
+
+1. **Strong Entity Set**
+
+   * For each **strong entity set** $E$ in the ER schema,
+     * create a relation schema $R$ that includes all the attributes of $E$.
+     * choose one set of key attributes of $E$ as a primary key for $R$
+
+2. **Weak Entity Set**
+
+   * For each weak entity set $W$ in the ER model,
+     * create a relation schema $R$, and include all attributes.
+     * In addition, include the primary $key(s)$ of the $owner(s)$.
+     * The primary key of $R$ is the combination of the primary $key(s)$ of the $owner(s)$ and the discriminator of the weak entity set $W$.
+
+3. **1-to-1 Relationship**
+
+   * For each binary one-to-one (1:1) relationship set $R$
+
+     $T----S$
+
+     * Choose one of the 2 relation schemas, say $S$,
+       * get primary key of $T$,
+       * include it as foreign keys in $S$.
+     * Better if S has total participation in $R$
+     * Include the attributes of the relationship set $R$ as attributes of $S$
+
+4. **1-to-many Relationship**
+
+   * For each binary one-to-many relationship set
+
+     $T----S$
+
+     * Include as foreign key in $S$ the primary key that represents the other entity set $T$ participating in $R$.
+     * Include any attributes of the one-to-many relationship set as attributes of $S$.
+
+5. **Many-to-many Relationship**
+
+   * For each binary many-to-many relationship set $R$
+     * create a new relation schema $S$ to represent $R$
+     * Include as foreign key attributes in $S$ the primary keys of the relation schemas for the  participating entity sets in $R$
+     * their combination will form the primary key of $S$
+     * Also include attributes of the many-to-many relationship set as attributes of $S$.
+
+6. **Non-binary Relationship**
+
+   * For each non-binary relationship set,
+     * create a new relation schema $S$ to represent $R$.
+     * Include as foreign key attributes in $S$ the primary keys of the participating entity sets.
+     * Also include any attributes of the nonbinary relationship set as attributes of $S$.
 
 
 
