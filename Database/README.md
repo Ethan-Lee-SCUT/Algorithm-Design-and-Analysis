@@ -299,7 +299,7 @@ $$
 
    * The new relation $R’$ has the same instance as $R$, but its schema has attribute $N’_i$ instead of attribute $N_i$
 
-add pics
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/renaming.JPG" style="zoom:0.65" />
 
 #### 5. Division $A/B$
 
@@ -309,9 +309,25 @@ add pics
 
 1. Find all student IDs (sids) of the students who took **all​** courses in table Course.
 
-add pics
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/division1.JPG" style="zoom:0.5" />
+$$
+Answer=Take/Course
+$$
 
 2. Find all student IDs (sids) of the students who took **all** courses provided by CSE.
 
-add pics
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/division2.JPG" style="zoom:0.5" />
+$$
+Answer=Take/\pi_{cid}(\sigma_{dept="CSE"}(Course))
+$$
+
+#### 6. Additional Operators - Outer Join
+
+* An extension of the join operation that avoids loss of information.
+* Computes the join and then adds **tuples** from one relation that do not match **tuples** in the other relation to the result of the join.
+
+
+
+* **Left outer join**
+  * Keep the entire left relation (Loan) and fill in information from the right relation, use null if information is missing
 
