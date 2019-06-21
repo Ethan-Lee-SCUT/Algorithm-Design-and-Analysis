@@ -1,7 +1,9 @@
 # Database Review
 
 题型：选择+大题
+
 不会直接考定义，会考用自己的话描述（理解）
+
 着重实践，例如ER diagram与逻辑间的转换 依赖关系的推导等
 
 ### Chapter-01 Introduction
@@ -247,17 +249,33 @@
 * Schema of result contains exactly the fields in the projection list, with the same names that they had in the (only) input relation.
 * Projection operator **eliminates duplicates!**
 
-add pics
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/projection.JPG" style="zoom:0.85" />
 
 #### 2. Selection $\sigma_c(R)$
 
 * Selects rows (records/tuples) that satisfy a selection **condition** $c$.
 
-add pics
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/selection.JPG" style="zoom:0.8" />
 
+#### 3. Set Operations
 
+* Union, Intersection, Set-Difference
+* These three operations take two input relations, which must be **union-compatible**
+  * Same number of fields
+  * Corresponding fields have the same type
+* Output is a single relation (that does not contain duplicates)
 
+1. $Plane_1\cup Plane_2$
 
+   
+
+2. $Plane_1- Plane_2$
+
+   
+
+3. $Plane_1\cap Plane_2$
+
+   
 
 
 
