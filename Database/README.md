@@ -1,5 +1,9 @@
 # Database Review
 
+题型：选择+大题
+不会直接考定义，会考用自己的话描述（理解）
+着重实践，例如ER diagram与逻辑间的转换 依赖关系的推导等
+
 ### Chapter-01 Introduction
 
 #### 1. What is a Database
@@ -221,6 +225,35 @@
      * Also include any attributes of the nonbinary relationship set as attributes of $S$.
 
 
+
+
+
+### Chapter-05 Relational Algebra
+
+* **Basic operations**
+  * Projection
+  * Selection
+  * Set-difference
+  * Union
+  * Cross-product
+  * Rename
+* **Additional operations**
+  * Intersection, join, division: Not essential, but (very!) useful.
+* Each operation returns a relation, and **operations can be composed!**
+
+#### 1. Projection $\pi_L(R)$
+
+* Deletes attributes that are not in projection list $L$.
+* Schema of result contains exactly the fields in the projection list, with the same names that they had in the (only) input relation.
+* Projection operator **eliminates duplicates!**
+
+add pics
+
+#### 2. Selection $\sigma_c(R)$
+
+* Selects rows (records/tuples) that satisfy a selection **condition** $c$.
+
+add pics
 
 
 
