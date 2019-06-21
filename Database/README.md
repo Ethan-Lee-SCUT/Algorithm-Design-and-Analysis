@@ -259,25 +259,59 @@
 
 #### 3. Set Operations
 
-* Union, Intersection, Set-Difference
-* These three operations take two input relations, which must be **union-compatible**
+* **Union, Intersection, Set-Difference**
+* These three operations take two input relations, which must be **union-compatible**.
   * Same number of fields
   * Corresponding fields have the same type
-* Output is a single relation (that does not contain duplicates)
+* Output is a single relation (that does not contain duplicates).
 
-1. $Plane_1\cup Plane_2$
+1. **Union** $Plane_1\cup Plane_2$
 
+   <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/union.JPG" style="zoom:0.7" />
+
+2. **Set Difference** $Plane_1- Plane_2$
+
+   * $R_1-R_2=\sigma_{}$
+
+   <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/set_difference.JPG" style="zoom:0.7" />
+
+3. **Intersection** $Plane_1\cap Plane_2$
+
+   <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/intersection.JPG" style="zoom:0.7" />
+
+4. **Cartesian Product** $R_1\times R_2$
    
+* Combines each row of one table with every row of another table
+  
+5. **Join** $R_1\triangleright\triangleleft  R_2=\sigma_{c}(R_1\times R_2) $
 
-2. $Plane_1- Plane_2$
+   * Join is a **cartesian product** followed by **a selection**
+   * **Natrual join???**
+   * **$\theta-$join???**
 
-   
+#### 4.Renaming $\rho$
 
-3. $Plane_1\cap Plane_2$
+   * If attributes or relations have the same name, it may be convenient to rename one
 
-   
+$$
+   \rho(R'(N_1\rightarrow N'_1,...,N_n\rightarrow N'_n),R)
+$$
 
+   * The new relation $R’$ has the same instance as $R$, but its schema has attribute $N’_i$ instead of attribute $N_i$
 
+add pics
 
+#### 5. Division $A/B$
 
+* Let $A$ have two attributes $x$ and $y$ 
+* Let $B$ have one attribute $y$
+* $A/B$ contains all $x$ tuples, such that for every $y$ tuple in $B$ there is a $xy$ tuple in $A$
+
+1. Find all student IDs (sids) of the students who took **all​** courses in table Course.
+
+add pics
+
+2. Find all student IDs (sids) of the students who took **all** courses provided by CSE.
+
+add pics
 
