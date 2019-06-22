@@ -163,7 +163,7 @@
 * **Domain $\leftrightarrow$ legal type and range of values of an attribute.**
   * denoted by $dom(A_i)$
 
-<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/terminology.JPG" style="zoom:0.55" />
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/terminology.JPG" style="zoom:0.4" />
 
 #### 2. Foreign Key
 
@@ -249,13 +249,13 @@
 * Schema of result contains exactly the fields in the projection list, with the same names that they had in the (only) input relation.
 * Projection operator **eliminates duplicates!**
 
-<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/projection.JPG" style="zoom:0.85" />
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/projection.JPG" style="zoom:0.7" />
 
 #### 2. Selection $\sigma_c(R)$
 
 * Selects rows (records/tuples) that satisfy a selection **condition** $c$.
 
-<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/selection.JPG" style="zoom:0.8" />
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/selection.JPG" style="zoom:0.7" />
 
 #### 3. Set Operations
 
@@ -267,25 +267,24 @@
 
 1. **Union** $Plane_1\cup Plane_2$
 
-   <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/union.JPG" style="zoom:0.7" />
+   <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/union.JPG" style="zoom:0.6" />
 
 2. **Set Difference** $Plane_1- Plane_2$
 
    * $R_1-R_2=\sigma_{}$
 
-   <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/set_difference.JPG" style="zoom:0.7" />
+   <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/set_difference.JPG" style="zoom:0.6" />
 
 3. **Intersection** $Plane_1\cap Plane_2$
 
-   <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/intersection.JPG" style="zoom:0.7" />
+   <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/intersection.JPG" style="zoom:0.6" />
 
 4. **Cartesian Product** $R_1\times R_2$
    
 * Combines each row of one table with every row of another table
   
-5. **Join** $R_1\triangleright\triangleleft  R_2=\sigma_{c}(R_1\times R_2) $
-
-   * Join is a **cartesian product** followed by **a selection**
+5. **Join** $R_1\triangleright \triangleleft  R_2=\sigma_{c}(R_1\times R_2) $
+* Join is a **cartesian product** followed by **a selection**
    * **Natrual join???**
    * **$\theta-$join???**
 
@@ -299,7 +298,7 @@ $$
 
    * The new relation $R’$ has the same instance as $R$, but its schema has attribute $N’_i$ instead of attribute $N_i$
 
-<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/renaming.JPG" style="zoom:0.65" />
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/renaming.JPG" style="zoom:0.5" />
 
 #### 5. Division $A/B$
 
@@ -309,14 +308,14 @@ $$
 
 1. Find all student IDs (sids) of the students who took **all​** courses in table Course.
 
-<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/division1.JPG" style="zoom:0.5" />
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/division1.JPG" style="zoom:0.4" />
 $$
 Answer=Take/Course
 $$
 
 2. Find all student IDs (sids) of the students who took **all** courses provided by CSE.
 
-<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/division2.JPG" style="zoom:0.5" />
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/division2.JPG" style="zoom:0.4" />
 $$
 Answer=Take/\pi_{cid}(\sigma_{dept="CSE"}(Course))
 $$
@@ -326,8 +325,212 @@ $$
 * An extension of the join operation that avoids loss of information.
 * Computes the join and then adds **tuples** from one relation that do not match **tuples** in the other relation to the result of the join.
 
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/outer_join.JPG" style="zoom:0.5" />
 
+* **Left outer join $=\triangleright \triangleleft$**
 
-* **Left outer join**
   * Keep the entire left relation (Loan) and fill in information from the right relation, use null if information is missing
+
+  <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/outer_join_left.JPG" style="zoom:0.5" />
+
+* **Right outer join $\triangleright \triangleleft =$**
+
+  * Keep the entire right relation (borrower) and fill in information from the left relation, use null if information is missing
+
+  <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/outer_join_right.JPG" style="zoom:0.5" />
+
+* **Full outer join $=\triangleright \triangleleft =$**
+
+  * Keep the entire left relation (loan) and the entire right relation (borrower), and use null if information is missing
+
+  <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/outer_join_full.JPG" style="zoom:0.5" />
+
+
+
+
+
+### Chapter-06 SQL
+
+#### 1. Domain Types in SQL
+* char($n$) 
+  * Fixed length character string, with user-specified length $n$.
+* varchar($n$) 
+  * Variable length character string, with user-specified maximum length $n$.
+* int
+* smallint
+* Numeric($p,d$)
+  * $p$ digits, $d$ digits to the right of decimal point
+* real, double precision
+* float($n$)
+* date
+* time
+
+#### 2. Data Definition Language (DDL)
+
+* **Create Table**
+
+  * e.g. Custermer(<u>customer-name</u>, customer street)
+
+  ```sql
+  create table customer
+  	(	customer-name	   char(20)	not null,
+  		customer-street	   char(30),
+  		customer-city	   char(30),
+  		primary key (customer-name)	)
+  ```
+
+* **Drop Table**
+
+  ```sql
+  drop table custermer
+  ```
+
+* **Alter Table**
+
+  ```sql
+  alter table customer add phone char(10) 
+  alter table customer drop phone 
+  ```
+
+* **Integrity Constraints (ICs)**
+  
+  * nut null
+
+#### 3. Data Manipulation Language (DML)
+
+1. **The basic form of SQL**
+
+   ```sql
+   SELECT       [DISTINCT]  target-list		# projections
+   FROM         relation-list					# cross-product
+   WHERE        qualification (condition)		# selection
+   ```
+
+   $$
+   \pi_{a_1,a_2,...,a_n}(\sigma_P(R_1\times R_2\times...\times R_m))
+   $$
+
+2. **Arithmetic Operation**
+
+   * Select clause:  $+$,$-$,$/$ and $\times$ operating on constants or attributes of tuples.
+
+   ```sql
+   select branch-name, loan-number, amount * 100 from loan
+   ```
+
+   * Where clause: Logical expression (and, or, not)
+
+   ```sql
+   select loan-number from loan where branch-name=“Perryridge” and amount >1200
+   ```
+
+   * Where clause: Between
+
+   ```sql
+   select loan-number from loan where amount between 90000 and 100000
+   ```
+
+   * From clause: Join
+     * Cartisian product with wherec clause
+
+3. **Rename Operation**
+
+   * 'as' is usually omitted
+
+   * Select clause: 
+
+   ```sql
+   select distinct customer-name, borrower.loan-number as loan-id from borrower, loan
+   ```
+
+   * From clause:
+
+   ```sql
+   select distinct customer-name, T.loan-number from borrower as T, loan as S
+   ```
+
+4. **String Operation**
+
+   * $\%$ matches any substring
+   * $\_$ matches any single character
+   * Find the name of all customers  whose street includes the substring ‘Main’. (E.g., Mainroad, Small Main Road, AMainroad,…)
+
+   ```sql
+   select customer-name from customer where customer-street like “%Main%”
+   ```
+
+5. **Ordering the Display of Tuples**
+
+   * 'asc' for ascending order
+   * 'desc' for descending order
+   * List the names of all customers in the ascending order of customer-city and then descending order of customer-name
+
+   ```sql
+   select distinct customer-name from customer order by customer-city asc, customer-name desc
+   ```
+
+6. **Aggregate Operator**
+   * COUNT ([DISTINCT] A)
+   * SUM ([DISTINCT] A)
+   * AVG ([DISTINCT A)
+   * MAX (A)
+   * MIN (A)
+
+7. **Set Operation**
+
+   * **Union $\cap$**
+   * **Intersection $\cup$**
+   * **Except $-$**
+   * Each of the above operations **automatically eliminates duplicates**; To retain all duplicates, we can use **union all, intersect all and except all**.
+   * Find all customers who have a loan, an account, or both:
+
+   ```sql
+   (select customer-name from depositor)
+   union  
+   (select customer-name from borrower)
+   ```
+
+   * Find all customers who have both a loan and an account
+
+   ```sql
+   (select customer-name from depositor)
+   intersect
+   (select customer-name from borrower)
+   ```
+
+   * Find all customers who have an account but no loan.
+
+   ```sql
+   (select customer-name from depositor)
+   except
+   (select customer-name from borrower)
+   ```
+
+   * **Nested Subquery**
+     * **in** 
+     * **not in**
+     * **some**
+     * **all**
+     * **exist** (Test for empty relations)
+
+8. **Division ???**
+
+9. **Group By**
+
+   * Find the number of accounts for each branch. 
+
+   ```sql
+   select branch-name, count(account-number) from account group by branch-name
+   ```
+
+   * **Having** clause
+     * predicates in the **having** clause are applied to each group after the formation of groups.
+
+10. **NULL value**
+
+    * 
+
+
+
+
 
