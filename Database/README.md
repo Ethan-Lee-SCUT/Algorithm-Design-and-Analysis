@@ -365,7 +365,7 @@ $$
 * date
 * time
 
-#### 2. Data Definition Language (DDL)
+#### 2. Data Definition Language (DDL) (Fundamental concepts)
 
 * **Create Table**
 
@@ -528,9 +528,101 @@ $$
 
 10. **NULL value**
 
-    * 
+    * Logic with unknown values
+
+    <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/null_logic.JPG" style="zoom:0.5" />
+
+11. **Sequence ???**
+
+    * A sequence is a database object that generates numbers in sequential order. 
+
+#### 4. Data Definition Language (DDL) (Advanced concepts)
+
+1. Domain constraints
+
+   ```sql
+   create domain hourly-wage numeric(5,2) constraint wage-value-test check (value > 4.00)
+   ```
+
+2. Possibly many **candidate keys**  (specified using **UNIQUE**), one of which is chosen as the **primary key**.
+
+   ```sql
+   CREATE TABLE Enrolled
+      (sid CHAR(20)
+        cid  CHAR(20),
+        grade CHAR(2),
+        PRIMARY KEY  (sid),
+        UNIQUE (cid, grade) )
+   ```
+
+3. Foreign key
+
+   * use **cascade delete** or **cascade update** to  maintain data
+
+   ```sql
+   create table depositor
+       (customer-name		char(15),
+   	account-number		char(10)    not null,
+   	primary key (customer-name, account-number),
+   	foreign key (customer-name) references customer	on delete cascade,
+   	foreign key (account-number) references account	on delete cascade)
+   
+   ```
+
+4. Record deletion
+
+   ```sql
+   delete from account where branch-name = “Perryridge”
+   ```
+
+5. Record insertion
+
+   ```sql
+   insert into account account (branch-name, balance, account-number) 	values (“Perryridge”, 1200, “A-9732”)
+   ```
+
+6. Record update
+
+   ```sql
+   update account set balance = 2000 where account-number = “A-123”
+   ```
+
+7. Views (likes a relation)
+
+   * Provide a mechanism to hide certain data from the view of certain users.
+
+   ```sql
+   create view view-name as <query expression>
+   ```
+
+   ```sql
+   Drop view view-name
+   ```
+
+8. Assertion
+
+   * An assertion is a complex constraint that the database must always satisfy.
+
+   ```sql
+   create assertion <assertion-name> check <predicate>
+   ```
+
+   * When an assertion is made, the system tests it for validity.
+
+9. Trigger
+
+   * A trigger is a statement that is executed automatically by the system as a side effect of a modification to the database.
+
+   ```sql
+   create trigger <trigger-name> …
+   ```
 
 
 
 
 
+### Chapter-08 Functional Dependency, Schema Refinement & Normal Forms
+#### 1. Problems caused by redundancy
+
+* Waste of resources of storage
+* Potential inconsistency
