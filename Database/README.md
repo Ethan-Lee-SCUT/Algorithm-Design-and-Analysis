@@ -745,13 +745,19 @@ $$
     * $\Leftrightarrow(R_1\cap R_2)$ is a key for $R_1$ or $R_2$
 * Example (non-lossless)
 
-
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/decom1.JPG" style="zoom:0.35" />
 
 * Example (lossless)
 
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/decom2.JPG" style="zoom:0.35" />
 
+### 6. Dependency preservation
 
-
+* $R$ – a relation schema
+* $F$ – a set of functional dependencies on $R$
+* $\{R_1,R_2\}$ is a decomposition of $R$
+* $F_i$ – a subset of $F$ with only attributes in $R_i$
+* 
 
 
 
