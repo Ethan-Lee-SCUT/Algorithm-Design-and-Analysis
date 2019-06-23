@@ -757,7 +757,38 @@ $$
 * $F$ – a set of functional dependencies on $R$
 * $\{R_1,R_2\}$ is a decomposition of $R$
 * $F_i$ – a subset of $F$ with only attributes in $R_i$
-* 
+* **Dependency is preserved** if $(F_1\cup F_2)^+=F^+$
+* e.g.
+
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/dependency_preservation.JPG" style="zoom:0.35" />
+
+### 7. BCNF decomposition algorithm ???
+
+* Suppose $R$ is not in BCNF, $A$ is an attribute, and $X\rightarrow A$ is a FD that violates the BCNF
+  condition.
+  1. Remove $A$ from $R$
+  2. Decompose $R$ into $XA$ and $R-A$
+  3. Repeat this process until all the relations become BCNF
+
+* Different orders of chosen FDs lead to different decompositions!
+* BCNF decomposition guarantees that the decomposition is a lossless-join
+* It does not guarantees that the decomposition is dependency preserving
+
+### 8. 3NF decomposition algorithm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
