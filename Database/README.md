@@ -8,11 +8,11 @@
 
 ## Chapter-01 Introduction
 
-### 1. What is a Database
+### 1.1. What is a Database
 
 * A **collection of data**, typically describing the activities of one or more related organizations.
 
- ### 2. DBMS
+ ### 1.2. DBMS
 
 * A **DBMS** is a **collection of software programs** to enable users to create, maintain and utilize a database.
 
@@ -22,11 +22,11 @@
 
 ## Chapter-02 ER Diagram
 
-### 1. ER Model (Entity-Relationship model)
+### 2.1. ER Model (Entity-Relationship model)
 
 * ER model views the real world as a collection of **entities** and **relationships** among entities.
 
-### 2. Entity
+### 2.2. Entity
 
 * An **object** in the real world that is distinguishable from other objects.
   * e.g. A classroom, A teacher, The address of the teacher
@@ -38,7 +38,7 @@
 
 <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/er_diagram.JPG" style="zoom:0.4" />
 
-### 3. Attributes Types
+### 2.3. Attributes Types
 
 1. **Simple attribute**
 
@@ -65,7 +65,7 @@
 
    <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/derived_attribute.JPG" style="zoom:0.4" />
 
-### 4. Key attributes
+### 2.4. Key attributes
 
 1. **Key**
    * A set of attributes that can **uniquely** identity an entity.
@@ -76,7 +76,7 @@
 * A **minimal set of attributes** that uniquely identifies an entity is called a **candidate key**.
 * If there are many candidate keys, we should choose one candidate key as the **primary key**.
 
-### 5. Relationship
+### 2.5. Relationship
 
 * A relationship is an association among several entities.
 * The **degree** refers to the number of entity sets that participate in a relationship set.
@@ -113,7 +113,7 @@
      * Each entity in the entity set **may (or may not) be associated** in a relationship.
        * e.g. Some customers may (or may not) borrow loans.
 
-### 6. Strong Entity/Weak Entity
+### 2.6. Strong Entity/Weak Entity
 
 * **Strong Entity**
   * An entity can **be uniquely identified** by some attributes related to this entity.
@@ -124,7 +124,7 @@
     * If a weak entity set $W$ is dependent on a strong entity set $E$, we say that $E$ **owns** $W$.
       * e.g. Employee owns Dependent
 
-### 7. Class Hierarchy
+### 2.7. Class Hierarchy
 
 <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/class_hierachy.JPG" style="zoom:0.5" />
 
@@ -140,7 +140,7 @@
   * Add descriptive attribute that make sense only for the entities in a subclass.
   * Identify the set of entities that participate in some relationships.
 
-### 8. Non-binary Relationship
+### 2.8. Non-binary Relationship
 
 * Ternary Relationship
 
@@ -152,7 +152,7 @@
 
 ## Chapter-04 Relational Model
 
-### 1. Terminology
+### 4.1. Terminology
 
 * **Relation $\leftrightarrow$ Table**
   * denoted by $R(A_1,A_2,...,A_n)$ where $R$ is **relation name** and $(A_1,A_2,...,A_n)$ is the relation schema of $R$
@@ -165,7 +165,7 @@
 
 <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/terminology.JPG" style="zoom:0.4" />
 
-### 2. Foreign Key
+### 4.2. Foreign Key
 
 * A set of attributes in one relation $R$ that is used to refer to a tuple in another relation $S$. (it must correspond to the primary key of the second relation)
   * Student
@@ -175,7 +175,7 @@
   * Student-id in relation Student is a **primary key**
   * Student-id in relation Take is a **foreign key**
 
-### 3. ER-to-Relational Mapping (???)
+### 4.3. ER-to-Relational Mapping (???)
 
 1. **Strong Entity Set**
 
@@ -243,7 +243,7 @@
   * Intersection, join, division: Not essential, but (very!) useful.
 * Each operation returns a relation, and **operations can be composed!**
 
-### 1. Projection $\pi_L(R)$
+### 5.1. Projection $\pi_L(R)$
 
 * Deletes attributes that are not in projection list $L$.
 * Schema of result contains exactly the fields in the projection list, with the same names that they had in the (only) input relation.
@@ -251,13 +251,13 @@
 
 <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/projection.JPG" style="zoom:0.7" />
 
-### 2. Selection $\sigma_c(R)$
+### 5.2. Selection $\sigma_c(R)$
 
 * Selects rows (records/tuples) that satisfy a selection **condition** $c$.
 
 <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/selection.JPG" style="zoom:0.7" />
 
-### 3. Set Operations
+### 5.3. Set Operations
 
 * **Union, Intersection, Set-Difference**
 * These three operations take two input relations, which must be **union-compatible**.
@@ -288,7 +288,7 @@
    * **Natrual join???**
    * **$\theta-$join???**
 
-### 4.Renaming $\rho$
+### 5.4.Renaming $\rho$
 
    * If attributes or relations have the same name, it may be convenient to rename one
 
@@ -300,7 +300,7 @@ $$
 
 <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/renaming.JPG" style="zoom:0.5" />
 
-### 5. Division $A/B$
+### 5.5. Division $A/B$
 
 * Let $A$ have two attributes $x$ and $y$ 
 * Let $B$ have one attribute $y$
@@ -320,7 +320,7 @@ $$
 Answer=Take/\pi_{cid}(\sigma_{dept="CSE"}(Course))
 $$
 
-### 6. Additional Operators - Outer Join
+### 5.6. Additional Operators - Outer Join
 
 * An extension of the join operation that avoids loss of information.
 * Computes the join and then adds **tuples** from one relation that do not match **tuples** in the other relation to the result of the join.
@@ -351,7 +351,7 @@ $$
 
 ## Chapter-06 SQL
 
-### 1. Domain Types in SQL
+### 6.1. Domain Types in SQL
 * char($n$) 
   * Fixed length character string, with user-specified length $n$.
 * varchar($n$) 
@@ -365,7 +365,7 @@ $$
 * date
 * time
 
-### 2. Data Definition Language (DDL) (Fundamental concepts)
+### 6.2. Data Definition Language (DDL) (Fundamental concepts)
 
 * **Create Table**
 
@@ -396,7 +396,7 @@ $$
   
   * nut null
 
-### 3. Data Manipulation Language (DML)
+### 6.3. Data Manipulation Language (DML)
 
 1. **The basic form of SQL**
 
@@ -536,7 +536,7 @@ $$
 
     * A sequence is a database object that generates numbers in sequential order. 
 
-### 4. Data Definition Language (DDL) (Advanced concepts)
+### 6.4. Data Definition Language (DDL) (Advanced concepts)
 
 1. Domain constraints
 
@@ -622,7 +622,7 @@ $$
 
 
 ## Chapter-08 Functional Dependency, Schema Refinement & Normal Forms
-### 1. Problems caused by redundancy
+### 8.1. Problems caused by redundancy
 
 * Waste of resources of storage
 * Potential inconsistency
@@ -634,7 +634,7 @@ $$
 * Solution:
   * Decomposition
 
-### 2. Functional dependencies
+### 8.2. Functional dependencies
 
 * Functional dependency is a type of constraint that is **a generalization of the notation of key**.
 
@@ -704,7 +704,7 @@ $$
 
   <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/alg_closure2.JPG" style="zoom:0.35" />
 
-### 3. Boyce Codd normal form (BCNF)
+### 8.3. Boyce Codd normal form (BCNF)
 
 * $R$ – a relation schema
 * $F$ – a set of functional dependencies on $R$
@@ -715,7 +715,7 @@ $$
 
 <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/bcnf.JPG" style="zoom:0.4" />
 
-### 4. Third normal form (3NF)
+### 8.4. Third normal form (3NF)
 
 * $R$ – a relation schema
 * $F$ – a set of functional dependencies on $R$
@@ -731,7 +731,7 @@ $$
 
 <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/3nf.JPG" style="zoom:0.4" />
 
-### 5. Decomposition
+### 8.5. Decomposition
 
 * **Definition**
   * $\{R_1,...,R_n\}$ – a set of relation schemas
@@ -751,7 +751,7 @@ $$
 
 <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/decom2.JPG" style="zoom:0.35" />
 
-### 6. Dependency preservation
+### 8.6. Dependency preservation
 
 * $R$ – a relation schema
 * $F$ – a set of functional dependencies on $R$
@@ -762,7 +762,7 @@ $$
 
 <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/dependency_preservation.JPG" style="zoom:0.35" />
 
-### 7. BCNF decomposition algorithm ???
+### 8.7. BCNF decomposition algorithm ???
 
 * Suppose $R$ is not in BCNF, $A$ is an attribute, and $X\rightarrow A$ is a FD that violates the BCNF
   condition.
@@ -770,11 +770,114 @@ $$
   2. Decompose $R$ into $XA$ and $R-A$
   3. Repeat this process until all the relations become BCNF
 
-* Different orders of chosen FDs lead to different decompositions!
 * BCNF decomposition guarantees that the decomposition is a lossless-join
 * It does not guarantees that the decomposition is dependency preserving
 
-### 8. 3NF decomposition algorithm
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/bcnf_decom.JPG" style="zoom:0.35" />
+
+### 8.8. 3NF decomposition algorithm ??????
+
+* **Canonical Cover $F_c$**
+  * **repeat**
+    * Replace any $\alpha_1\rightarrow\beta_1$ and $\alpha_1\rightarrow\beta_2$ by $\alpha_1\rightarrow\beta_1\beta_2$
+    * Delete any **extraneous attribute** from any $\alpha\rightarrow\beta$
+    * **until** $F$ does not change
+* **Algorithm**
+  * Find a canonical cover $F_c$ for $F$
+  * result = { }
+  * for each $\alpha\rightarrow \beta$ in $F_c$ do
+    * if no schema in result contains $\alpha\beta$ then
+      * add schema $\alpha \beta$ to result
+  * end for
+  * if no schema in result contains a candidate key for $R$
+    * choose any candidate key $\alpha $ for R
+    * add schema $\alpha $ to result
+  * end if
+* 3NF decomposition guarantees that the decomposition is a lossless-join
+* It guarantees that the decomposition is dependency preserving
+
+### 8.9. Design goal
+
+* Goal for a relational database design
+  * BCNF
+  * Lossless-join
+  * Dependency Preservation
+* If we cannot achieve this, we accept
+  * 3NF
+  * Lossless-join
+  * Dependency Preservation
+
+
+
+
+
+## Chapter-09 File and Index Structure
+
+### 9.1. Disks and Files
+
+* Why Not Store Everything in Main Memory?
+  * **Costs too much**. RAM is much more expensive than disk.
+  * **Main memory is volatile**. We want data to be saved between runs.
+
+### 9.2. Indexes and Databases
+
+* Indexing mechanisms speed up access to desired data.
+* **Search key** - attributes used to look up records in a file.
+* An **index file** consists of records (called **index entries**) of the format:
+
+$$
+Search\_Key---Pointer
+$$
+
+* Index files are typically much smaller than the original file
+* Two basic kinds of indices:
+  * **Ordered indices**: search keys are stored in sorted order
+  * **Hash indices**: search keys are distributed uniformly across “buckets” using a “hash function”.
+
+* **How are indexing techniques evaluated?**
+  * What access operation can be supported?
+  * Time (access, insertion, deletion)
+  * Space overhead
+
+#### 9.2.1 Ordered indices
+
+* **Primary index (clustering index)**: in a sequentially ordered file, the index whose search key specifies the sequential order of the file.
+* **Secondary index (non-clustering index.)**: an index whose search key specifies an order different from the sequential order of the file. 
+* **Dense index**
+  * **Every search-key value** in the data file is indexed.
+* **Sparse index**
+  * Not all of the search-key values are indexed.
+    * Adv: reduce index size
+    * Disadv: slower
+  * To locate a record with search-key value $K$ we
+    * find index record with largest search-key value $≤ K$
+    * search file sequentially starting at the record to which index record points
+* **Multilevel index**
+  * **Outer index**: A sparse index of primary index
+  * **Inner index**: The primary index file
+* **Index update (Deletion)**
+  * Dense index
+    * similar to file record deletion
+  * Sparse index
+    * If an entry for the search key exists in the index, it is deleted by replacing the entry in the index with the next search-key value in the file (in search-key order). If the next search-key value already has an index entry, the entry is deleted instead of being replaced.
+* **Index update (Insertion)**
+  * **Perform a lookup** using the search-key value appearing in the record to be inserted.
+  * **Dense indices** - if the search-key value does not appear in the index, insert it.
+  * **Sparse indices** - if index stores an entry for each block of the file, no change needs to be made to the index unless a new block is created. In this case, the first search-key value appearing in the new block is inserted into the index.
+* **Primary and secondary indices**
+  * Secondary indices have to be dense because records are not sorted by the secondary index values.
+
+### 9.3. Hash Files
+
+* A hash method includes a **hash function** and a **collision handling mechanism**
+
+#### 9.3.1. Static hashing (bucket hashing)
+
+* A hash file consists of M buckets of the same size
+
+
+
+
 
 
 
