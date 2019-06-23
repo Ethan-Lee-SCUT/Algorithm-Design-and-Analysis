@@ -694,7 +694,7 @@ $$
       * $A\rightarrow\beta\Rightarrow CA\rightarrow CB$
     * If $\alpha\rightarrow\beta,\beta\rightarrow\gamma$ then $\alpha\rightarrow\gamma$ (transitivity)
       * $A\rightarrow BD$, $BD\rightarrow C\Rightarrow A\rightarrow C$
-    * Additional rules (inferred from Armstrong's axioms)
+    * Additional rules (inferred from Armstrongs axioms) 
       * $A\rightarrow B$ and $A\rightarrow C\Rightarrow A\rightarrow BC$ ???
       * $A\rightarrow BC\Rightarrow A\rightarrow B$ and $A\rightarrow C$
       * $A\rightarrow B$ and $BC\rightarrow D\Rightarrow AC\rightarrow D$
@@ -873,15 +873,20 @@ $$
 
 #### 9.3.1. Static hashing (bucket hashing)
 
-* A hash file consists of M buckets of the same size
+* A hash file consists of M buckets of the **same size**
 
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/static_hashing.JPG" style="zoom:0.5" />
 
+* Hash indices
+  * Hash indices are **always secondary indices**.
 
+#### 9.3.2.  Dynamic hashing
 
-
-
-
-
+* **Extendable hashing**
+  * At any time, use **only a prefix** of the $b$ -bit integers to index into a table of bucket addresses. Let the length of the prefix be $i$ bits, $0 < i < 32$
+  * Initially i = 1, meaning that it can index **at most 2 buckets**
+  * When the 2 buckets are full, we can use 2 bits ($i = 2$), meaning that we can now index at most 4 buckets, and so on and so forth.
+  * $i$ grows and shrinks as the size of the database grows and shrinks.
 
 
 
