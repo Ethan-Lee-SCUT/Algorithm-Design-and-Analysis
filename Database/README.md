@@ -6,6 +6,10 @@
 
 着重实践，例如ER diagram与逻辑间的转换 依赖关系的推导等
 
+
+
+
+
 ## Chapter-01 Introduction
 
 ### 1.1. What is a Database
@@ -880,17 +884,52 @@ $$
 * Hash indices
   * Hash indices are **always secondary indices**.
 
-#### 9.3.2.  Dynamic hashing
+#### 9.3.2.  Dynamic hashing ???
 
 * **Extendable hashing**
+
   * At any time, use **only a prefix** of the $b$ -bit integers to index into a table of bucket addresses. Let the length of the prefix be $i$ bits, $0 < i < 32$
+
   * Initially i = 1, meaning that it can index **at most 2 buckets**
+
   * When the 2 buckets are full, we can use 2 bits ($i = 2$), meaning that we can now index at most 4 buckets, and so on and so forth.
+
   * $i$ grows and shrinks as the size of the database grows and shrinks.
 
+  * Actual number of buckets is $< 2^i$, which may change due to bucket merging and splitting.
+
+    <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/extendable_hashing.JPG" style="zoom:0.65" />
+
+## Chapter-10 B+ Tree
+
+* It is **balanced**: all leaf nodes are at the same level
+* Each node has a special structure
+
+* Minimum height $H$ of B+ tree
+  * $H\ge \log_F(\frac{D}{F-1})$
+  * $F$ is the number of pointers, $D$ is the number of data entries.
+
+### 10.1. Manipulation
+
+* Query
+* Insert
+* Delete
 
 
 
+
+
+## Chapter-11 External Sort
+
+* **Two-way external merge sort** 
+  * Requires 3 buffers
+
+#### 11.1. General External Merge Sort
+
+* To sort a file with $N$ pages using $B$ buffer pages:
+  * Pass 0: use $B$ buffer pages
+    * Produce $\lceil N/B\rceil$sorted runs of $B$ pages each.
+  * Pass 2, …, etc.: merge $B-1$ runs
 
 
 
