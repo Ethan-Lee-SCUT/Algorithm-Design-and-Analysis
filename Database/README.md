@@ -729,9 +729,25 @@ $$
 * $R$ is in BCNF $\Rightarrow$ $R$ is in 3NF
 * e.g. 
 
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/3nf.JPG" style="zoom:0.4" />
+
+### 5. Decomposition
+
+* **Definition**
+  * $\{R_1,...,R_n\}$ – a set of relation schemas
+  * $\{R_1,...,R_n\}$ is a **decomposition** of $R$ if $R_1\cup R_2\cup...\cup R_n=R$
+  * $\{R_1,...,R_n\}$ is a **lossless-join decomposition** of $R$ if for all relations $r$ on schema $R$, $\Pi_{R_1}(r)\times...\times\Pi_{R_n}(r)=r$
+* **Imply**
+  * $R$ – a relation schema
+  * $F$ – a set of functional dependencies on $R$
+    * ${R_1,F_2}$ is a lossless-join decomposition of $R$
+    * $\Leftrightarrow(R_1\cap R_2)\rightarrow R_1\in F^+$ or $(R_1\cap R_2)\rightarrow R_2\in F^+$
+    * $\Leftrightarrow(R_1\cap R_2)$ is a key for $R_1$ or $R_2$
+* Example (non-lossless)
 
 
 
+* Example (lossless)
 
 
 
