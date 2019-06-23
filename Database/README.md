@@ -599,7 +599,7 @@ $$
    Drop view view-name
    ```
 
-8. Assertion
+8. Assertion ???
 
    * An assertion is a complex constraint that the database must always satisfy.
 
@@ -609,7 +609,7 @@ $$
 
    * When an assertion is made, the system tests it for validity.
 
-9. Trigger
+9. Trigger ???
 
    * A trigger is a statement that is executed automatically by the system as a side effect of a modification to the database.
 
@@ -626,3 +626,80 @@ $$
 
 * Waste of resources of storage
 * Potential inconsistency
+
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/redundancy.JPG" style="zoom:0.35" />
+
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/inconsistency.JPG" style="zoom:0.35" />
+
+* Solution:
+  * Decomposition
+
+#### 2. Functional dependencies
+
+* Functional dependency is a type of constraint that is **a generalization of the notation of key**.
+
+* **Definition**
+
+  * $R$ -- a relation schema, $\alpha\subset R, \beta\subset R$
+
+  * $\alpha\rightarrow\beta$ if and only if
+
+  ​        for any relation $r$ on $R$
+
+  ​            for any two tuples $t_1,t_2$ of $r$
+
+  ​                $\Pi_\alpha(t_1)=\Pi_\alpha(t_2)\Rightarrow\Pi_\beta(t_1)=\Pi_\beta(t_2)$
+
+* **Trivial Functional Dependency ???**
+
+  * $\alpha\rightarrow\beta$ where $\beta\subseteq\alpha$
+    * e.g. $AB\rightarrow A$
+
+* **Non-Trivial Functional Dependency ???**
+
+  * ?
+    * e.g. $AB\rightarrow C$
+
+* **Information deduced from functional dependencies**
+
+  * $\alpha$ is a **key** for $R$
+
+    $\Leftrightarrow\alpha\rightarrow R$
+
+  * $\alpha$ is a **candidate key** for $R$
+
+    $\Leftrightarrow\alpha\rightarrow R$, and there is no $\gamma$ s.t. $\gamma\subset\alpha$, $\gamma\rightarrow R$
+
+    * e.g. $AC\rightarrow R$, $AD\rightarrow R$, $ACD\rightarrow R$
+    * $AC$, $AD$ are candidate keys
+    * $ACD$ is not a candidate key
+
+* **Reasoning about FDs**
+
+  * $F$: a set of functional dependencies
+  * $f$: an individual functional dependency
+  * $f$ is implied by $F$ if
+    * whenever all functional dependencies in $F$ are true
+      * then $f$ is true
+  * e.g. $F = {A \rightarrow B, B\rightarrow C}$ implies $A\rightarrow C$
+
+* **Closure of $F$**
+
+  * $F^+$ – closure of $F$: the set of all functional dependencies that $F$ implies
+    * e.g. $F={A\rightarrow B}$
+      * $F^+={A\rightarrow A, B\rightarrow B, A\rightarrow B, A\rightarrow AB, AB\rightarrow A,AB\rightarrow B,AB\rightarrow AB}$
+
+  * **Armstrong’s axioms**
+    * If $\beta\subseteq\alpha$ then $\alpha\rightarrow\beta$ (reflexivity)
+      * e.g. $\{A,C\}\subseteq\{A,B,C\}\Rightarrow ABC\rightarrow AC$
+    * If $\alpha\rightarrow\beta$ then $\gamma\alpha\rightarrow\gamma\beta$ (augmentation)
+      * $A\rightarrow\beta\Rightarrow CA\rightarrow CB$
+    * If $\alpha\rightarrow\beta,\beta\rightarrow\gamma$ then $\alpha\rightarrow\gamma$ (transitivity)
+      * $A\rightarrow BD$, $BD\rightarrow C\Rightarrow A\rightarrow C$
+    * Additional rules (inferred from Armstrong's axioms)
+      * $A\rightarrow B$ and $A\rightarrow C\Rightarrow A\rightarrow BC$ ???
+      * $A\rightarrow BC\Rightarrow A\rightarrow B$ and $A\rightarrow C$
+      * $A\rightarrow B$ and $BC\rightarrow D\Rightarrow AC\rightarrow D$
+  * **Algorithm to compute $\alpha^+$**
+
+  add pics
