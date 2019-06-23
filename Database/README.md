@@ -6,13 +6,13 @@
 
 着重实践，例如ER diagram与逻辑间的转换 依赖关系的推导等
 
-### Chapter-01 Introduction
+## Chapter-01 Introduction
 
-#### 1. What is a Database
+### 1. What is a Database
 
 * A **collection of data**, typically describing the activities of one or more related organizations.
 
- #### 2. DBMS
+ ### 2. DBMS
 
 * A **DBMS** is a **collection of software programs** to enable users to create, maintain and utilize a database.
 
@@ -20,13 +20,13 @@
 
 
 
-### Chapter-02 ER Diagram
+## Chapter-02 ER Diagram
 
-#### 1. ER Model (Entity-Relationship model)
+### 1. ER Model (Entity-Relationship model)
 
 * ER model views the real world as a collection of **entities** and **relationships** among entities.
 
-#### 2. Entity
+### 2. Entity
 
 * An **object** in the real world that is distinguishable from other objects.
   * e.g. A classroom, A teacher, The address of the teacher
@@ -38,7 +38,7 @@
 
 <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/er_diagram.JPG" style="zoom:0.4" />
 
-#### 3. Attributes Types
+### 3. Attributes Types
 
 1. **Simple attribute**
 
@@ -65,7 +65,7 @@
 
    <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/derived_attribute.JPG" style="zoom:0.4" />
 
-#### 4. Key attributes
+### 4. Key attributes
 
 1. **Key**
    * A set of attributes that can **uniquely** identity an entity.
@@ -76,7 +76,7 @@
 * A **minimal set of attributes** that uniquely identifies an entity is called a **candidate key**.
 * If there are many candidate keys, we should choose one candidate key as the **primary key**.
 
-#### 5. Relationship
+### 5. Relationship
 
 * A relationship is an association among several entities.
 * The **degree** refers to the number of entity sets that participate in a relationship set.
@@ -113,7 +113,7 @@
      * Each entity in the entity set **may (or may not) be associated** in a relationship.
        * e.g. Some customers may (or may not) borrow loans.
 
-#### 6. Strong Entity/Weak Entity
+### 6. Strong Entity/Weak Entity
 
 * **Strong Entity**
   * An entity can **be uniquely identified** by some attributes related to this entity.
@@ -124,7 +124,7 @@
     * If a weak entity set $W$ is dependent on a strong entity set $E$, we say that $E$ **owns** $W$.
       * e.g. Employee owns Dependent
 
-#### 7. Class Hierarchy
+### 7. Class Hierarchy
 
 <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/class_hierachy.JPG" style="zoom:0.5" />
 
@@ -140,7 +140,7 @@
   * Add descriptive attribute that make sense only for the entities in a subclass.
   * Identify the set of entities that participate in some relationships.
 
-#### 8. Non-binary Relationship
+### 8. Non-binary Relationship
 
 * Ternary Relationship
 
@@ -150,7 +150,7 @@
 
 
 
-### Chapter-04 Relational Model
+## Chapter-04 Relational Model
 
 ### 1. Terminology
 
@@ -165,7 +165,7 @@
 
 <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/terminology.JPG" style="zoom:0.4" />
 
-#### 2. Foreign Key
+### 2. Foreign Key
 
 * A set of attributes in one relation $R$ that is used to refer to a tuple in another relation $S$. (it must correspond to the primary key of the second relation)
   * Student
@@ -175,7 +175,7 @@
   * Student-id in relation Student is a **primary key**
   * Student-id in relation Take is a **foreign key**
 
-#### 3. ER-to-Relational Mapping (???)
+### 3. ER-to-Relational Mapping (???)
 
 1. **Strong Entity Set**
 
@@ -230,7 +230,7 @@
 
 
 
-### Chapter-05 Relational Algebra
+## Chapter-05 Relational Algebra
 
 * **Basic operations**
   * Projection
@@ -243,7 +243,7 @@
   * Intersection, join, division: Not essential, but (very!) useful.
 * Each operation returns a relation, and **operations can be composed!**
 
-#### 1. Projection $\pi_L(R)$
+### 1. Projection $\pi_L(R)$
 
 * Deletes attributes that are not in projection list $L$.
 * Schema of result contains exactly the fields in the projection list, with the same names that they had in the (only) input relation.
@@ -251,13 +251,13 @@
 
 <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/projection.JPG" style="zoom:0.7" />
 
-#### 2. Selection $\sigma_c(R)$
+### 2. Selection $\sigma_c(R)$
 
 * Selects rows (records/tuples) that satisfy a selection **condition** $c$.
 
 <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/selection.JPG" style="zoom:0.7" />
 
-#### 3. Set Operations
+### 3. Set Operations
 
 * **Union, Intersection, Set-Difference**
 * These three operations take two input relations, which must be **union-compatible**.
@@ -288,7 +288,7 @@
    * **Natrual join???**
    * **$\theta-$join???**
 
-#### 4.Renaming $\rho$
+### 4.Renaming $\rho$
 
    * If attributes or relations have the same name, it may be convenient to rename one
 
@@ -300,7 +300,7 @@ $$
 
 <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/renaming.JPG" style="zoom:0.5" />
 
-#### 5. Division $A/B$
+### 5. Division $A/B$
 
 * Let $A$ have two attributes $x$ and $y$ 
 * Let $B$ have one attribute $y$
@@ -320,7 +320,7 @@ $$
 Answer=Take/\pi_{cid}(\sigma_{dept="CSE"}(Course))
 $$
 
-#### 6. Additional Operators - Outer Join
+### 6. Additional Operators - Outer Join
 
 * An extension of the join operation that avoids loss of information.
 * Computes the join and then adds **tuples** from one relation that do not match **tuples** in the other relation to the result of the join.
@@ -349,9 +349,9 @@ $$
 
 
 
-### Chapter-06 SQL
+## Chapter-06 SQL
 
-#### 1. Domain Types in SQL
+### 1. Domain Types in SQL
 * char($n$) 
   * Fixed length character string, with user-specified length $n$.
 * varchar($n$) 
@@ -365,7 +365,7 @@ $$
 * date
 * time
 
-#### 2. Data Definition Language (DDL) (Fundamental concepts)
+### 2. Data Definition Language (DDL) (Fundamental concepts)
 
 * **Create Table**
 
@@ -396,7 +396,7 @@ $$
   
   * nut null
 
-#### 3. Data Manipulation Language (DML)
+### 3. Data Manipulation Language (DML)
 
 1. **The basic form of SQL**
 
@@ -536,7 +536,7 @@ $$
 
     * A sequence is a database object that generates numbers in sequential order. 
 
-#### 4. Data Definition Language (DDL) (Advanced concepts)
+### 4. Data Definition Language (DDL) (Advanced concepts)
 
 1. Domain constraints
 
@@ -621,8 +621,8 @@ $$
 
 
 
-### Chapter-08 Functional Dependency, Schema Refinement & Normal Forms
-#### 1. Problems caused by redundancy
+## Chapter-08 Functional Dependency, Schema Refinement & Normal Forms
+### 1. Problems caused by redundancy
 
 * Waste of resources of storage
 * Potential inconsistency
@@ -634,7 +634,7 @@ $$
 * Solution:
   * Decomposition
 
-#### 2. Functional dependencies
+### 2. Functional dependencies
 
 * Functional dependency is a type of constraint that is **a generalization of the notation of key**.
 
@@ -644,11 +644,9 @@ $$
 
   * $\alpha\rightarrow\beta$ if and only if
 
-  ​        for any relation $r$ on $R$
-
-  ​            for any two tuples $t_1,t_2$ of $r$
-
-  ​                $\Pi_\alpha(t_1)=\Pi_\alpha(t_2)\Rightarrow\Pi_\beta(t_1)=\Pi_\beta(t_2)$
+    * For any relation $r$ on $R$
+    * For any two tuples $t_1,t_2$ of $r$
+        * $\Pi_\alpha(t_1)=\Pi_\alpha(t_2)\Rightarrow\Pi_\beta(t_1)=\Pi_\beta(t_2)$
 
 * **Trivial Functional Dependency ???**
 
@@ -702,4 +700,30 @@ $$
       * $A\rightarrow B$ and $BC\rightarrow D\Rightarrow AC\rightarrow D$
   * **Algorithm to compute $\alpha^+$**
 
-  add pics
+  <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/alg_closure1.JPG" style="zoom:0.35" />
+
+  <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/alg_closure2.JPG" style="zoom:0.35" />
+
+### 3. Boyce Codd normal form (BCNF)
+
+* $R$ – a relation schema
+* $F$ – a set of functional dependencies on $R$
+* $R$ is in **BCNF** if for **any** $\alpha\rightarrow A$ in $F$
+  * $\alpha\rightarrow A$ is trivial ($A\in\alpha$), or
+  * $\alpha $ is a key for $R$
+* e.g.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
