@@ -713,9 +713,21 @@ $$
   * $\alpha $ is a key for $R$
 * e.g.
 
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/bcnf.JPG" style="zoom:0.4" />
 
+### 4. Third normal form (3NF)
 
-
+* $R$ – a relation schema
+* $F$ – a set of functional dependencies on $R$
+* $A$ – a single attribute in $R$
+* $R$ is in **3NF** if for **any** $\alpha\rightarrow A$ in $F$
+  * $\alpha\rightarrow A$ is trivial ($A\in\alpha$), or
+  * $\alpha $ is a key for $R$, or
+  * $A$ is part of some key(s) for $R$
+    * e.g. $AB$ is a key for $R$
+    * $A$ is a part of the key, $B$ is also a part of the key.
+* $R$ is in BCNF $\Rightarrow$ $R$ is in 3NF
+* e.g. 
 
 
 
