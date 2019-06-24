@@ -1015,7 +1015,7 @@ For each page p of T (T is called outer relation )
 
 * Assume that there is an index built on attribute sid for table Student
 
-
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/index_nested_join.JPG" style="zoom:0.5" />
 
 ```pseudocode
 For each tuple t of T
@@ -1037,7 +1037,7 @@ For each tuple t of T
 
 ### 12.2. Hash Join
 
-
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/hash_join.JPG" style="zoom:0.4" />
 
 ```pseudocode
 1. Hash all tuples in T based on sid
@@ -1047,4 +1047,62 @@ For each tuple t of T
 		t.sid = s.sid
 	2. Output all these tuples
 ```
+
+
+
+
+
+## Chapter-13 Query Optimization
+
+* DBMS’s job is to optimize the users’ query by
+  * Converting the query to a number of evaluation plans
+  * Estimate the cost of each evaluation plan
+  * Find the evaluation plan with the lowest
+    cost
+
+### 13.1. Materialization and On-the-fly
+
+* Let $op1$ and $op2$ be two relational algebra operations, and $op1$ is performed on the result of $op2$
+* The evaluation of $op1$ is **on-the-fly** if **the result of op2 is directly sent to $op1$** (i.e, not stored in a temporary file)
+* It is **materialized** if that **result is stored in a temporary file first**
+* **On-the-fly evaluation** is called **pipelined evaluation**
+* On-the-fly can be more efficient than materialized
+
+#### 13.1.1. Materialization
+
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/hash_join.JPG" style="zoom:0.4" />
+
+#### 13.1.2. On-the-fly
+
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/hash_join.JPG" style="zoom:0.4" />
+
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/hash_join.JPG" style="zoom:0.4" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
