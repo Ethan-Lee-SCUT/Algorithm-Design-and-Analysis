@@ -933,8 +933,8 @@ $$
 
 <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/external_sort.JPG" style="zoom:0.4" />
 
-* Number of passes: $1+\lceil\log_{B-1}\lceil N/B\rceil\rceil$
-*  Cost: $2N\times(\# passes)$
+* **Number of passes**: $1+\lceil\log_{B-1}\lceil N/B\rceil\rceil$
+*  **Cost**: $2N\times(\# passes)$
 
 
 
@@ -968,14 +968,37 @@ For each page p of T (T is called outer relation )
   * 1 page for $p$ (from $T$)
   * page for $q$ (from $S$)
   * 1 page for the output
-* Cost of Reading $T$ = 1000 pages
-  * The total number of times that $S$ is read = 1000
-* Cost of Reading $S$ (with multiple times) = 1000*500 = 500000 pages
-* Total Cost = 1000 + 500000 = 501000 pages
+* Cost of Reading $T$ = $1000$ pages
+  * The total number of times that $S$ is read = $1000$
+* Cost of Reading $S$ (with multiple times) = $1000\times 500 = 500000$ pages
+* Total Cost = $1000 + 500000 = 501000$ pages
 
 ### 12.2. Block-Nested Loop Join
 
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/block_nested_loop_join.JPG" style="zoom:0.5" />
 
+```pseudocode
+For each page p of T (T is called outer relation )
+	for each page q of S (S is called inner relation )
+		for each tuple t ∈ p and each tuple s ∈ q
+			such that t.sid = s.sid
+			output <t, s> to the output
+```
 
+* We have $B$ pages in memory (or $B$ buffer pages)
+  * $B=6$
 
+* $B-2$ pages for $p$ (from $T$)
+* 1 page for $q$ (from $S$)
+* 1 page for the output
+* Cost of Reading $T$ = 1000 pages
+* The total number of times that $S$ is read = $\lceil1000/(6-2)\rceil=250$
+* Cost of Reading $S$ (with multiple times) = $250*500 = 125000$ pages
+* Total Cost = $1000 + 125000 = 126000$ pages
+
+### 12.3. Sort-Merge Join
+
+1. Sort table $T$ according to sid
+2. Sort table $S$ according to sid
+3. Merge table $T$ and table $S$
 
