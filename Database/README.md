@@ -1,4 +1,4 @@
-# Database Review
+# *Database Review
 
 题型：选择+大题
 
@@ -931,9 +931,48 @@ $$
     * Produce $\lceil N/B\rceil$sorted runs of $B$ pages each.
   * Pass 2, …, etc.: merge $B-1$ runs
 
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/external_sort.JPG" style="zoom:0.4" />
+
+* Number of passes: $1+\lceil\log_{B-1}\lceil N/B\rceil\rceil$
+*  Cost: $2N\times(\# passes)$
 
 
 
+
+
+## Chapter-12 Join Algorithm
+
+e.g. 
+
+* **Student: 500 pages, 80 tuples/page, 50 bytes/tuple**
+
+* **Take: 1000 pages, 100 tuples/page, 40 bytes/tuple**
+
+* **200 courses in table Take**
+
+* **1, 2, …, 40 in attribute Age of table Student**
+* **Suppose that B = 6 pages**
+
+### 12.1. Simple-Nested Loop Join
+
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/external_sort.JPG" style="zoom:0.4" />
+
+```pseudocode
+For each page p of T (T is called outer relation )
+	for each page q of S (S is called inner relation )
+		for each tuple t ∈ p and each tuple s ∈ q
+			such that t.sid = s.sid
+			output <t, s> to the output
+```
+
+* We need 3 pages for buffer
+  * 1 page for $p$ (from $T$)
+  * page for $q$ (from $S$)
+  * 1 page for the output
+* Cost of Reading $T$ = 1000 pages
+  * The total number of times that $S$ is read = 1000
+* Cost of Reading $S$ (with multiple times) = 1000*500 = 500000 pages
+* Total Cost = 1000 + 500000 = 501000 pages
 
 
 
