@@ -1129,7 +1129,7 @@ $$
 ## Chapter-14 Concurrency Control
 ### 14.1. Transaction
 
-* Sequence of operations
+* Is a sequence of operations
 * E.g. T1: Read(A), A=A+100, Write(A) 
   * R(A), W(A)
   * Can be denoted by R1(A), W1(A)
@@ -1149,7 +1149,7 @@ $$
 
 <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/schedules.JPG" style="zoom:0.5" />
 
-### 14.4 Serial schedules
+### 14.4. Serial schedules
 
 * **Serial schedule**
   * A schedule which the operations belonging to one single transaction **appear together**.
@@ -1160,7 +1160,7 @@ $$
     * $H_1$ and $H_2$ are serializable schedules (to $T_1T_2$).
     * $H_3$ is a serializable schedule (to $T_2T_1$).
 
-### 14.5 Conflict Serializability
+### 14.5. Conflict Serializability
 
 * Two operations are **conflict** if
   * They are **operations of different transactions** on the **same data object**.
@@ -1192,4 +1192,45 @@ $$
       * $T_i$ executes write($X$) before $T_j$ executes read($X$)
       * $T_i$ executes read($X$) before $T_j$ executes write($X$)
       * $T_i$ executes write($X$) before $T_j$ executes write($X$)
-      * 
+  * A schedule $S$ is conflict serializable iff $G(S)$ is **acyclic** (i.e. **no cycle**)
+
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/precedence_graph.JPG" style="zoom:0.4" />
+
+### 14.6. View Serializability
+
+* Two schedules $S_1$ and $S_2$, where the same set of transactions participates in both schedules. They are said to be **view equivalent**
+  * If $T_i$ reads the initial value of a data item in $S_1$, $T_i$ also reads the initial value of the item in $S_2$.
+  * If $T_i$ reads an item produced by $T_j$ in $S_1$, $T_i$ also reads the item produced by $T_j$ in $S_2$.
+  * If $T_i$ writes the final value of a data item in $S_1$, $T_i$ also writes the final value of the item in $S_2$.
+* $S$ is **view serializable** if it is view equivalent to a **serial schedule**
+  * Suppose $S_1$ are view equivalent to $S_2$.
+  * $S_2$ is a serial schedule.
+  * $S_1$ is said to be view serialable.
+
+### 14.7. Strict Two-Phase Locking Protocol ???
+
+* **Shared Lock - lock-S**
+  * Used when the transaction only read the data object
+  * Allow read (for other transactions)
+  * Not allow write (for other transactions)
+* Exclusive Lock - lock-X
+  * Used when the transaction has a write operation on the data object
+  * Not allow read (for other transactions)
+  * Not allow write (for other transactions)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
