@@ -1230,6 +1230,8 @@ $$
 
 ## Chapter-15 Recovery
 
+### 15.1.Commit/Abort
+
 Two Additional Operations of a transaction:
 
 1. **Commit **
@@ -1241,9 +1243,17 @@ Two Additional Operations of a transaction:
 
 * $T_i$ write an object: the old value and the new value
 * $T_i$ commits/ aborts
-* 
 
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/log.JPG" style="zoom:0.4" />
 
+### 15.2. Recoverable schedules
+
+* Transactions may be **aborted** due to logical failure. e.g. deadlock
+* **Recoverability** is required to ensure that aborting a transaction does not change the semantics of committed transaction's operations.
+* A schedule $H$ is called **recoverable (RC)** if,
+  * whenever $T_i$ reads from $T_j$. ($i\ne j$) in $H$ and $T_i$’s commit appears in $H$,
+  * $T_j$’s Commit appears before $T_i$’s Commit
+* Intuitively, a history is recoverable if each transaction commits after the commitment of all transactions (other than itself) from which it reads.
 
 
 
