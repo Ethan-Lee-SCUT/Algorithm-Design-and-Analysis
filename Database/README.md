@@ -951,11 +951,10 @@ e.g.
 * **200 courses in table Take**
 
 * **1, 2, …, 40 in attribute Age of table Student**
-* **Suppose that B = 6 pages**
 
 ### 12.1. Simple-Nested Loop Join
 
-<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/external_sort.JPG" style="zoom:0.4" />
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/simple_nested_loop_join.JPG" style="zoom:0.5" />
 
 ```pseudocode
 For each page p of T (T is called outer relation )
@@ -965,7 +964,7 @@ For each page p of T (T is called outer relation )
 			output <t, s> to the output
 ```
 
-* We need 3 pages for buffer
+* We need **3 pages for buffer**
   * 1 page for $p$ (from $T$)
   * page for $q$ (from $S$)
   * 1 page for the output
@@ -973,6 +972,8 @@ For each page p of T (T is called outer relation )
   * The total number of times that $S$ is read = 1000
 * Cost of Reading $S$ (with multiple times) = 1000*500 = 500000 pages
 * Total Cost = 1000 + 500000 = 501000 pages
+
+### 12.2. Block-Nested Loop Join
 
 
 
