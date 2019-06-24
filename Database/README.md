@@ -1,4 +1,4 @@
-# *Database Review
+# Database Review
 
 题型：选择+大题
 
@@ -1218,7 +1218,9 @@ $$
   * Not allow read (for other transactions)
   * Not allow write (for other transactions)
 
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/lock1.JPG" style="zoom:0.4" />
 
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/lock2.JPG" style="zoom:0.4" />
 
 
 
