@@ -1246,7 +1246,7 @@ Two Additional Operations of a transaction:
 
 <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/log.JPG" style="zoom:0.4" />
 
-### 15.2. Recoverable schedules
+### 15.2. Recoverable Schedules
 
 * Transactions may be **aborted** due to logical failure. e.g. deadlock
 * **Recoverability** is required to ensure that aborting a transaction does not change the semantics of committed transaction's operations.
@@ -1254,6 +1254,42 @@ Two Additional Operations of a transaction:
   * whenever $T_i$ reads from $T_j$. ($i\ne j$) in $H$ and $T_i$’s commit appears in $H$,
   * $T_j$’s Commit appears before $T_i$’s Commit
 * Intuitively, a history is recoverable if each transaction commits after the commitment of all transactions (other than itself) from which it reads.
+
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/recoverable_schedules1.JPG" style="zoom:0.4" />
+
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/recoverable_schedules.JPG" style="zoom:0.4" />
+
+### 15.3. Avoiding Cascading Aborts (ACA)
+
+* Even for recoverable execution, aborting a transaction may trigger further abortions, a phenomenon called **cascading abort** .
+
+* A schedule H avoids cascading aborts (ACA) if
+  * whenever $T_i$ reads $X$ from $T_j$ ($i \ne j$), $T_j$’s Commit appears before $T_i$’s R(X)
+
+* That is, a transaction may read only those values that are written by committed transactions or by itself.
+
+### 15.4. Strict (ST) Executions
+
+* O(X) is a read operation (i.e., R(X)) or a write operation (i.e., W(X))
+* A schedule H is **strict (ST)** if
+  * whenever $T_j$’s W(X) appears before $T_i$’s O(X) ($i\ne j$)
+  * $T_j$’s abort/commit appears **before** $T_i$’s O(X)
+
+### 15.5. Relationship
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
