@@ -1166,13 +1166,15 @@ $$
   * They are **operations of different transactions** on the **same data object**.
   * At least one of them is a **write** operation
 
-
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/conflict.JPG" style="zoom:0.5" />
 
 * Two operations are **non-conflict**
 
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/non_conflict.JPG" style="zoom:0.5" />
 
-
-
+* Two schedules $S_1$ and $S_2$ are **conflict equivalent** if
+  * $S_1$ and $S_2$ involve the same operations of the same transaction
+  * Every pair of conflicting operations is ordered in the same way in S1 and S2
 
 
 
