@@ -1192,7 +1192,7 @@ $$
       * $T_i$ executes write($X$) before $T_j$ executes read($X$)
       * $T_i$ executes read($X$) before $T_j$ executes write($X$)
       * $T_i$ executes write($X$) before $T_j$ executes write($X$)
-  * A schedule $S$ is conflict serializable iff $G(S)$ is **acyclic** (i.e. **no cycle**)
+  * A schedule $S$ is **conflict serializable** iff $G(S)$ is **acyclic** (i.e. **no cycle**)
 
 <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/precedence_graph.JPG" style="zoom:0.4" />
 
@@ -1213,7 +1213,7 @@ $$
   * Used when the transaction only read the data object
   * Allow read (for other transactions)
   * Not allow write (for other transactions)
-* Exclusive Lock - lock-X
+* **Exclusive Lock - lock-X**
   * Used when the transaction has a write operation on the data object
   * Not allow read (for other transactions)
   * Not allow write (for other transactions)
@@ -1222,13 +1222,26 @@ $$
 
 <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/lock2.JPG" style="zoom:0.4" />
 
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/lock3.JPG" style="zoom:0.45" />
 
 
 
 
 
+## Chapter-15 Recovery
 
+Two Additional Operations of a transaction:
 
+1. **Commit **
+   * all operations in that transaction should be done physically on disk.
+2. **Abort**
+   * the transaction cannot be complete due to some errors (e.g. system crash)
+
+**Log** stores the following
+
+* $T_i$ write an object: the old value and the new value
+* $T_i$ commits/ aborts
+* 
 
 
 
