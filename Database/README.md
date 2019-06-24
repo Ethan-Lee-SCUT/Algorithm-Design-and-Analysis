@@ -1070,25 +1070,55 @@ For each tuple t of T
 
 #### 13.1.1. Materialization
 
-<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/hash_join.JPG" style="zoom:0.4" />
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/materialization.JPG" style="zoom:0.4" />
 
 #### 13.1.2. On-the-fly
 
-<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/hash_join.JPG" style="zoom:0.4" />
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/on_the_fly1.JPG" style="zoom:0.4" />
 
-<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/hash_join.JPG" style="zoom:0.4" />
-
-
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/on_the_fly2.JPG" style="zoom:0.4" />
 
 
 
+### 13.2. Join over Two Tables ???
+
+**Example schema**
+
+* Assuming the following table sizes:
+  * Student: 500 pages, 80 tuples/page, 50 bytes/tuple
+  * Take: 1000 pages, 100 tuples/page, 40 bytes/tuple
+* Assume that there are 200 courses in table Take
+
+此处省略很多字，根据Evaluation plan，一个一个步骤去分析cost
+
+### 13.3. Join over Multiple Tables
+
+#### 13.3.1. Relational algebra equivalences
+
+* **Selection**
+
+$$
+\sigma_{c1}(\sigma_{c2}(R))\equiv\sigma_{c2}(\sigma_{c1}(R)) \\
+\sigma_{c1\and ...\and cn}(R)\equiv\sigma_{c1}(...\sigma_{cn}(R))
+$$
+
+* **Join**
+
+$$
+R\triangleright\triangleleft(S\triangleright\triangleleft T)\equiv (R\triangleright\triangleleft S)\triangleright\triangleleft T\\
+(R\triangleright\triangleleft S))\equiv(S\triangleright\triangleleft R))
+$$
 
 
 
-
-
-
-
+* For multi-relation query, **plan space** can be very large and must be pruned.
+  * As # of joins increases, # of alternative plans grows rapidly.
+* Typically, **only left-deep trees** (the right child of each join node is a base table) are considered.
+  * Significantly fewer, but still lots
+    * $n!$
+* Left-deep trees allow us to generate **fully pipelined** plans.
+  * Intermediate results not written to temporary files.
+  * Not all plans from left-deep trees are fully pipelined (e.g., sort-merge join).
 
 
 
