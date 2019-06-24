@@ -1182,3 +1182,14 @@ $$
 
 * $S$ is **conflict serializable** if it is conflict equivalent to a serial schedule
 
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/conflict_serializable.JPG" style="zoom:0.4" />
+
+* **Precedence Graph**
+  * Test for conflict serializability
+  * A directed graph $G=(V,E)$, where
+    * $V$ includes all transactions involved in the schedule
+    * $E$ consists of all edges $T_i\rightarrow T_j$ for which one of three conditions holds: (**Conflict Operations**)
+      * $T_i$ executes write($X$) before $T_j$ executes read($X$)
+      * $T_i$ executes read($X$) before $T_j$ executes write($X$)
+      * $T_i$ executes write($X$) before $T_j$ executes write($X$)
+      * 
