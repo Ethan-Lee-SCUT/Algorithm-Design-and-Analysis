@@ -1144,9 +1144,31 @@ $$
 
 ### 14.3. Schedules
 
+* A sequence of operations in a set of transactions $\{T_1,T_2,...,T_n\}$
+* e.g. If a set of transactions is $\{T_1, T_2\}$
+
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/schedules.JPG" style="zoom:0.5" />
+
+### 14.4 Serial schedules
+
+* **Serial schedule**
+  * A schedule which the operations belonging to one single transaction **appear together**.
+    * $H_1$ is serial schedule ($T_1T_2$).
+    * $H_2,H_3$ are not serial schedule.
+* **Serializable schedules**
+  * Equivalent to some serial schedule.
+    * $H_1$ and $H_2$ are serializable schedules (to $T_1T_2$).
+    * $H_3$ is a serializable schedule (to $T_2T_1$).
+
+### 14.5 Conflict Serializability
+
+* Two operations are **conflict** if
+  * They are **operations of different transactions** on the **same data object**.
+  * At least one of them is a **write** operation
 
 
 
+* Two operations are **non-conflict**
 
 
 
