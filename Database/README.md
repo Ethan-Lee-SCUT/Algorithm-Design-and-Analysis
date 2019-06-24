@@ -998,7 +998,53 @@ For each page p of T (T is called outer relation )
 
 ### 12.3. Sort-Merge Join
 
-1. Sort table $T$ according to sid
-2. Sort table $S$ according to sid
-3. Merge table $T$ and table $S$
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/sort_merge_join.JPG" style="zoom:0.5" />
+
+```pseudocode
+1. Sort table T according to sid
+2. Sort table S according to sid
+3. Merge table T and table S
+```
+
+* Cost of Sorting T =$2\times1000\times(1+\lceil\log_{6-1}\lceil1000/6\rceil\rceil)=10000$
+* Cost of Sorting S =$2\times500\times(1+\lceil\log_{6-1}\lceil1000/6\rceil\rceil)=4000$
+* Cost of Merging = Cost of Reading $T$ + Cost of Reading $S$ = $1000+500=1500$
+* Total Cost = $10000 + 4000 + 1500 = 15500$ pages
+
+### 12.4. Index-Nested Loop Join ???
+
+* Assume that there is an index built on attribute sid for table Student
+
+
+
+```pseudocode
+For each tuple t of T
+	ID = t.sid
+	use the index to obtain a tuple s (or tuples) in S
+		with s.sid = ID
+	for each such s in S
+		output <t, s> to the output
+```
+
+* We have $B$ pages in memory (or $B$ buffer pages)
+  * $B=6$
+* Cost of Reading $T = 1000$ pages
+  * The total number of tuples in $T =1000*100=100000$
+* Cost of Reading $S$ (with multiple times) $=100000*(1.2 + 1) = 220000$ pages
+  * $1.2$ for hashing (given)
+  * $1$ for $\lceil(500*80/(100,000))\rceil$
+* Total Cost $= 1000 + 220000 = 221000$ pages
+
+### 12.2. Hash Join
+
+
+
+```pseudocode
+1. Hash all tuples in T based on sid
+2. Hash all tuples in S based on sid
+3. For each hash slot,
+	1. Join all tuples t from T and all tuples s from S where
+		t.sid = s.sid
+	2. Output all these tuples
+```
 
