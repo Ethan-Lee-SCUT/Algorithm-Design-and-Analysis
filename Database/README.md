@@ -1120,9 +1120,29 @@ $$
   * Intermediate results not written to temporary files.
   * Not all plans from left-deep trees are fully pipelined (e.g., sort-merge join).
 
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/left_deep_plan.JPG" style="zoom:0.45" />
 
 
 
+
+
+## Chapter-14 Concurrency Control
+### 14.1. Transaction
+
+* Sequence of operations
+* E.g. T1: Read(A), A=A+100, Write(A) 
+  * R(A), W(A)
+  * Can be denoted by R1(A), W1(A)
+* E.g. T2 : W(B), R(A)
+
+### 14.2. ACID Property
+
+1. Atomicity
+2. Consistency
+3. Isolation
+4. Durability
+
+### 14.3. Schedules
 
 
 
