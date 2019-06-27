@@ -38,7 +38,7 @@
 * An **entity set** is a collection of entities of the same type
 * All **entries** in a given entity set have the same attributes (the values may be different).
   * e.g. employee = (name, address, age, phone)
-* The **ER model** can be presented gra04phically by an **ER diagram**.
+* The **ER model** can be presented graphically by an **ER diagram**.
 
 <img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/er_diagram.JPG" style="zoom:0.4" />
 
@@ -1277,13 +1277,79 @@ Two Additional Operations of a transaction:
 
 ### 15.5. Relationship
 
+* Suppose that all transactions contain no abort operations.
+
+<img src="https://raw.githubusercontent.com/imethanlee/course-review/master/Database/pics/recovery_relation.JPG" style="zoom:0.6" />
 
 
 
 
 
+## Chapter-16 Timestamp Protocol ???
+
+**Concurrency Control**
+
+* **Objective:**
+  * Given a non-serial schedule,
+    * We want to determine the serialization order
+* **Timestamp Ordering Protocol**
+  * We can determine the serialization order according to the predefined information of transactions, specifically timestamps (i.e., before the **execution** of transactions)
+* **Two Phase Locking (2PL)**
+  * We can determine the serialization order according to the ordering that transactions obtain the locks (i.e., **during** the execution of transactions)
+### 16.1. Timestamp Concurrency Control
+
+* Timestamp (TS) of a transaction can be assigned by a centralized server
+  * e.g.
+  * TS($T_1$) = 5
+  * TS($T_2$) = 6
+  * Serialization order = $T_1$ $T_2$
+* Timestamp (TS) of an object
+  * **Read Timestamp (RTS)** of Object O
+    * The largest timestamp of any transaction that executed R(O) successfully.
+  * **Write Timestamp (WTS**) of Object O
+    * The largest timestamp of any transaction that executed W(O) successfully.
+* **Timestamp Ordering Protocol**
+  * Consider that action $a_i$ of transaction $T_i$ conflicts with action $a_j$ of transaction $T_j$
+  * We should guarantee that
+    * If TS($T_i$) < TS($T_j$)
+    * $a_i$ must occur before $a_j$.
+
+* **When Transaction $T$ wants to read Object $O$**
+  * If TS(T) < WTS(O)
+    * rejected
+  * **If TS(T) >= WTS(O)**
+    * accepted
+* **When Transaction $T$ wants to write Object $O$**
+  * If TS(T) < RTS(O),
+    * rejected.
+  * If TS(T) < WTS(O),
+    * rejected
+  * **TS(T) >= RTS(O) and TS(T) >= WTS(O)**
+    * accepted
 
 
+
+
+
+## Chapter-17 Data Warehouse
+
+* Also called **Online Analytical Processing (OLAP)**
+
+
+
+
+
+## Chapter-18 Data Mining
+
+**Objective:**
+
+* To find non-trivial interesting patterns from a large amount of information stored in databases
+
+**Major Topics**
+
+* Association
+* Clustering
+* Classification
 
 
 
